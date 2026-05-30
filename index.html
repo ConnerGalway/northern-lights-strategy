@@ -420,6 +420,67 @@ td strong { color: var(--text); font-weight: 500; }
   .action-step-card { padding: 16px 14px 14px; gap: 12px; }
   .action-num { width: 24px; height: 24px; font-size: 10px; }
 }
+
+/* ── DOWNLOAD BUTTON ── */
+.print-bar { display: flex; justify-content: flex-end; margin: 24px 0 32px; }
+.btn-download { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--aurora); border: 1px solid rgba(62,207,178,0.3); padding: 10px 22px; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; cursor: pointer; transition: all 0.2s; }
+.btn-download:hover { background: rgba(62,207,178,0.08); border-color: rgba(62,207,178,0.55); color: #5de0c8; }
+.btn-download svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+/* ── PRINT STYLES ── */
+@media print {
+  @page { size: A4; margin: 2cm 2.2cm; }
+
+  html, body { overflow: visible !important; display: block !important; background: #fff !important; color: #111 !important; }
+
+  #sidebar, .hamburger, label.hamburger, #nav-toggle, .nav-overlay, .print-bar { display: none !important; }
+
+  #main { margin-left: 0 !important; width: 100% !important; height: auto !important; overflow: visible !important; }
+
+  /* Hide every section except the action plan */
+  .section { display: none !important; }
+  #s-actionplan { display: block !important; padding: 0 !important; max-width: 100% !important; animation: none !important; }
+
+  /* Print masthead */
+  .section-header { padding-bottom: 16px !important; margin-bottom: 32px !important; border-bottom-color: #bbb !important; }
+  .section-header::before { content: 'Northern Lights Resort & Spa  ·  2026 Marketing Strategy'; display: block; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #888; margin-bottom: 18px; }
+  .section-num { color: #1a7060 !important; }
+  .section-num::before { background: #1a7060 !important; }
+  .section-title { color: #000 !important; font-size: 32px !important; }
+  .section-subtitle { color: #444 !important; }
+
+  /* Intro callout */
+  .callout { background: #f7f7f7 !important; border-color: #bbb !important; }
+  .callout.aurora-border { border-color: #1a9080 !important; }
+  .callout.gold-border { border-color: #b08000 !important; }
+  .callout-label { color: #555 !important; }
+  .callout p { color: #222 !important; }
+
+  /* Group headings */
+  .action-group { margin-bottom: 24px !important; }
+  .action-group-heading { color: #5a4200 !important; border-bottom-color: #d4a840 !important; font-size: 9px !important; padding-bottom: 8px !important; margin-bottom: 10px !important; }
+
+  /* Step cards */
+  .action-step-card { background: #fff !important; border: 1px solid #d8d8d8 !important; padding: 12px 16px 10px !important; margin-bottom: 5px !important; page-break-inside: avoid; gap: 12px !important; }
+  .action-num { width: 24px !important; height: 24px !important; font-size: 10px !important; background: #f0f0f0 !important; border-color: #ccc !important; color: #1a7060 !important; }
+  .action-title { color: #000 !important; font-size: 12.5px !important; margin-bottom: 5px !important; }
+  .action-desc { color: #444 !important; font-size: 11.5px !important; line-height: 1.55 !important; margin-bottom: 8px !important; }
+
+  /* Role footer */
+  .action-footer { gap: 8px !important; }
+  .action-timing { background: #f3f3f3 !important; border-color: #ddd !important; color: #555 !important; font-size: 9.5px !important; padding: 2px 8px !important; }
+  .action-role-tag { font-size: 8px !important; padding: 2px 6px !important; }
+  .action-role-tag.managing { background: #fef9e7 !important; color: #7a5500 !important; border-color: #c9a84c !important; }
+  .action-role-tag.executing { background: #edfaf7 !important; color: #1a6e60 !important; border-color: #2a9080 !important; }
+  .action-role-name { color: #000 !important; font-size: 11px !important; }
+
+  /* Divider + owner callout */
+  .divider { background: #ddd !important; margin: 24px 0 !important; }
+
+  /* Force page break before Group 03 and Group 05 */
+  .action-group:nth-child(5) { page-break-before: always; }
+  .action-group:nth-child(7) { page-break-before: always; }
+}
 </style>
 </head>
 <body>
@@ -1033,6 +1094,13 @@ td strong { color: var(--text); font-weight: 500; }
   <div class="callout aurora-border">
     <div class="callout-label">How to read this plan</div>
     <p><strong style="color:var(--gold)">Managing</strong> = the person responsible for coordinating the task, chasing progress, and making decisions. <strong style="color:var(--aurora)">Executing</strong> = the person or team doing the hands-on work. Both roles must be named before any task starts.</p>
+  </div>
+
+  <div class="print-bar">
+    <button class="btn-download" onclick="window.print()">
+      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1v8M5 6.5L8 9.5l3-3M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2"/></svg>
+      Download Printable Version
+    </button>
   </div>
 
   <!-- GROUP 1 -->

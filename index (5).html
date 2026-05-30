@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Northern Lights Resort & Spa: 2026 Marketing Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #07090f; --bg2: #0d1120; --bg3: #141928;
+  --border: rgba(255,255,255,0.07);
+  --aurora: #3ecfb2; --aurora2: #1a9e88;
+  --gold: #c9a84c; --gold2: #a07830;
+  --text: #e8e2d8; --text-dim: #8a8578; --text-mid: #b8b0a4;
+  --red: #e05c5c; --nav-w: 260px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; min-height: 100vh; display: flex; overflow: hidden; }
+
+/* ── SIDEBAR ── */
+#sidebar { width: var(--nav-w); min-width: var(--nav-w); background: var(--bg2); border-right: 1px solid var(--border); height: 100vh; overflow-y: auto; display: flex; flex-direction: column; position: fixed; left: 0; top: 0; z-index: 100; }
+#sidebar::-webkit-scrollbar { width: 3px; } #sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.sidebar-brand { padding: 28px 24px 20px; border-bottom: 1px solid var(--border); }
+.sidebar-brand .resort-name { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 400; letter-spacing: 0.04em; color: var(--text); line-height: 1.4; }
+.sidebar-brand .strategy-label { font-size: 10px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--aurora); margin-top: 4px; display: block; }
+.nav-section-label { font-size: 9px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); padding: 20px 24px 8px; }
+.nav-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 24px; border-left: 2px solid transparent; transition: background 0.18s; }
+.nav-item:hover { background: rgba(255,255,255,0.04); }
+.nav-item a { display: flex; gap: 12px; text-decoration: none; width: 100%; align-items: flex-start; }
+.nav-num { font-size: 10px; color: var(--text-dim); font-weight: 400; min-width: 18px; padding-top: 2px; }
+.nav-label { font-size: 12.5px; color: var(--text-mid); font-weight: 400; line-height: 1.4; }
+.sidebar-footer { margin-top: auto; padding: 20px 24px; border-top: 1px solid var(--border); font-size: 10px; color: var(--text-dim); letter-spacing: 0.04em; }
+
+/* ── MAIN ── */
+#main { margin-left: var(--nav-w); flex: 1; height: 100vh; overflow-y: auto; }
+#main::-webkit-scrollbar { width: 4px; } #main::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* ── SECTION VISIBILITY VIA :target ── */
+.section { display: none; padding: 60px 64px 80px; max-width: 960px; animation: fadeIn 0.25s ease; }
+#s-hero { display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; min-height: 100vh; padding: 0; max-width: 100%; }
+.section:target { display: block; }
+#s-hero:target { display: flex; }
+
+/* Hide hero when any other section is targeted */
+body:has(#s-exec:target) #s-hero,
+body:has(#s-situation:target) #s-hero,
+body:has(#s-audiences:target) #s-hero,
+body:has(#s-positioning:target) #s-hero,
+body:has(#s-channels:target) #s-hero,
+body:has(#s-content:target) #s-hero,
+body:has(#s-campaigns:target) #s-hero,
+body:has(#s-website:target) #s-hero,
+body:has(#s-kpis:target) #s-hero,
+body:has(#s-phasing:target) #s-hero,
+body:has(#s-risks:target) #s-hero,
+body:has(#s-nextsteps:target) #s-hero { display: none; }
+
+/* ── NAV ACTIVE STATES ── */
+body:not(:has(.section:target)) [data-sec="s-hero"],
+body:has(#s-hero:target) [data-sec="s-hero"],
+body:has(#s-exec:target) [data-sec="s-exec"],
+body:has(#s-situation:target) [data-sec="s-situation"],
+body:has(#s-audiences:target) [data-sec="s-audiences"],
+body:has(#s-positioning:target) [data-sec="s-positioning"],
+body:has(#s-channels:target) [data-sec="s-channels"],
+body:has(#s-content:target) [data-sec="s-content"],
+body:has(#s-campaigns:target) [data-sec="s-campaigns"],
+body:has(#s-website:target) [data-sec="s-website"],
+body:has(#s-kpis:target) [data-sec="s-kpis"],
+body:has(#s-phasing:target) [data-sec="s-phasing"],
+body:has(#s-risks:target) [data-sec="s-risks"],
+body:has(#s-nextsteps:target) [data-sec="s-nextsteps"] {
+  background: rgba(62,207,178,0.06); border-left-color: var(--aurora);
+}
+body:not(:has(.section:target)) [data-sec="s-hero"] .nav-num,
+body:has(#s-hero:target) [data-sec="s-hero"] .nav-num,
+body:has(#s-exec:target) [data-sec="s-exec"] .nav-num,
+body:has(#s-situation:target) [data-sec="s-situation"] .nav-num,
+body:has(#s-audiences:target) [data-sec="s-audiences"] .nav-num,
+body:has(#s-positioning:target) [data-sec="s-positioning"] .nav-num,
+body:has(#s-channels:target) [data-sec="s-channels"] .nav-num,
+body:has(#s-content:target) [data-sec="s-content"] .nav-num,
+body:has(#s-campaigns:target) [data-sec="s-campaigns"] .nav-num,
+body:has(#s-website:target) [data-sec="s-website"] .nav-num,
+body:has(#s-kpis:target) [data-sec="s-kpis"] .nav-num,
+body:has(#s-phasing:target) [data-sec="s-phasing"] .nav-num,
+body:has(#s-risks:target) [data-sec="s-risks"] .nav-num,
+body:has(#s-nextsteps:target) [data-sec="s-nextsteps"] .nav-num { color: var(--aurora); }
+body:not(:has(.section:target)) [data-sec="s-hero"] .nav-label,
+body:has(#s-hero:target) [data-sec="s-hero"] .nav-label,
+body:has(#s-exec:target) [data-sec="s-exec"] .nav-label,
+body:has(#s-situation:target) [data-sec="s-situation"] .nav-label,
+body:has(#s-audiences:target) [data-sec="s-audiences"] .nav-label,
+body:has(#s-positioning:target) [data-sec="s-positioning"] .nav-label,
+body:has(#s-channels:target) [data-sec="s-channels"] .nav-label,
+body:has(#s-content:target) [data-sec="s-content"] .nav-label,
+body:has(#s-website:target) [data-sec="s-website"] .nav-label,
+body:has(#s-kpis:target) [data-sec="s-kpis"] .nav-label,
+body:has(#s-phasing:target) [data-sec="s-phasing"] .nav-label,
+body:has(#s-risks:target) [data-sec="s-risks"] .nav-label,
+body:has(#s-nextsteps:target) [data-sec="s-nextsteps"] .nav-label { color: var(--text); }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* ── HERO ── */
+.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(62,207,178,0.07) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 20% 80%, rgba(201,168,76,0.04) 0%, transparent 60%), linear-gradient(160deg, #0d1120 0%, #07090f 50%, #080d15 100%); }
+.hero-aurora { position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent 0%, var(--aurora2) 30%, var(--aurora) 60%, transparent 100%); opacity: 0.6; }
+.hero-content { position: relative; z-index: 2; padding: 80px 80px 60px; }
+.hero-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--aurora); margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
+.hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--aurora); opacity: 0.5; }
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(42px, 5vw, 72px); font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; color: var(--text); max-width: 700px; margin-bottom: 20px; }
+.hero-title em { font-style: italic; color: var(--aurora); }
+.hero-brand-promise { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic; font-weight: 300; color: var(--gold); letter-spacing: 0.02em; margin-bottom: 48px; }
+.hero-strategic-intro { font-size: 15px; line-height: 1.75; color: var(--text-mid); max-width: 620px; margin-bottom: 56px; }
+.four-priorities { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 740px; margin-bottom: 48px; }
+.priority-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 4px; padding: 20px 22px; text-decoration: none; display: block; transition: all 0.2s; }
+.priority-card:hover { background: rgba(62,207,178,0.05); border-color: rgba(62,207,178,0.2); }
+.priority-card .p-label { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--aurora); font-weight: 500; margin-bottom: 8px; }
+.priority-card .p-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 400; color: var(--text); margin-bottom: 8px; }
+.priority-card .p-desc { font-size: 12px; color: var(--text-dim); line-height: 1.55; }
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary { background: var(--aurora); color: #07090f; border: none; padding: 12px 28px; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; text-decoration: none; display: inline-block; transition: background 0.2s; }
+.btn-primary:hover { background: #5de0c8; }
+.btn-secondary { background: transparent; color: var(--text-mid); border: 1px solid var(--border); padding: 12px 28px; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; text-decoration: none; display: inline-block; transition: all 0.2s; }
+.btn-secondary:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+.hero-stats { display: flex; gap: 40px; margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border); }
+.hero-stat .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--text); line-height: 1; }
+.hero-stat .stat-label { font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
+
+/* ── SECTION TYPOGRAPHY ── */
+.section-header { margin-bottom: 48px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+.section-num { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--aurora); font-weight: 500; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.section-num::before { content: ''; display: block; width: 20px; height: 1px; background: var(--aurora); opacity: 0.5; }
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 300; line-height: 1.15; color: var(--text); letter-spacing: -0.01em; }
+.section-subtitle { font-size: 14px; color: var(--text-dim); margin-top: 12px; line-height: 1.6; max-width: 620px; }
+h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--text); margin: 48px 0 16px; letter-spacing: -0.01em; }
+h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--text); margin: 32px 0 12px; }
+h4 { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--aurora); margin: 24px 0 10px; }
+p { font-size: 14.5px; line-height: 1.78; color: var(--text-mid); margin-bottom: 18px; }
+p strong { color: var(--text); font-weight: 500; }
+a { color: inherit; }
+
+/* ── COMPONENTS ── */
+.pull-quote { border-left: 2px solid var(--aurora); padding: 16px 28px; margin: 32px 0; background: rgba(62,207,178,0.04); border-radius: 0 4px 4px 0; }
+.pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; font-weight: 300; color: var(--text); line-height: 1.5; margin: 0; }
+.pull-quote cite { display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-top: 10px; font-style: normal; }
+.callout { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 24px 28px; margin: 24px 0; }
+.callout.gold-border { border-color: rgba(201,168,76,0.3); }
+.callout.aurora-border { border-color: rgba(62,207,178,0.2); }
+.callout-label { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 10px; }
+.callout p { margin: 0; font-size: 14px; }
+.table-wrap { overflow-x: auto; margin: 24px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead th { text-align: left; padding: 10px 14px; background: var(--bg3); color: var(--text-dim); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+tbody tr { border-bottom: 1px solid var(--border); }
+tbody tr:hover { background: rgba(255,255,255,0.02); }
+tbody tr:last-child { border-bottom: none; }
+tbody td { padding: 12px 14px; vertical-align: top; color: var(--text-mid); line-height: 1.55; }
+tbody td:first-child { color: var(--text); font-weight: 400; }
+td strong { color: var(--text); font-weight: 500; }
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin: 24px 0; }
+.card { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 22px 22px 20px; }
+.card .card-tag { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--aurora); font-weight: 500; margin-bottom: 10px; }
+.card .card-title { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 400; color: var(--text); margin-bottom: 10px; line-height: 1.3; }
+.card p { font-size: 12.5px; color: var(--text-dim); margin: 0; line-height: 1.6; }
+.divider { height: 1px; background: var(--border); margin: 40px 0; }
+.traj-up { color: #6db87c; font-weight: 500; }
+.traj-down { color: var(--red); font-weight: 500; }
+.traj-complex { color: var(--gold); font-weight: 500; }
+
+/* ── MOBILE TOGGLE (checkbox hack) ── */
+#nav-toggle { display: none; }
+
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 16px; left: 16px;
+  z-index: 300;
+  width: 40px; height: 40px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+}
+
+.hamburger span {
+  display: block;
+  width: 18px; height: 1.5px;
+  background: var(--text-mid);
+  border-radius: 2px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+/* Overlay to close sidebar when tapping outside */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 99;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  body { overflow: hidden; }
+
+  .hamburger { display: flex; }
+
+  /* Sidebar off-screen by default on mobile */
+  #sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.28s ease;
+    z-index: 200;
+    width: 280px;
+    min-width: 280px;
+  }
+
+  /* Show sidebar when checkbox checked */
+  #nav-toggle:checked ~ #sidebar { transform: translateX(0); }
+  #nav-toggle:checked ~ .nav-overlay { display: block; }
+
+  /* Hamburger becomes X when open */
+  #nav-toggle:checked ~ label.hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+  }
+  #nav-toggle:checked ~ label.hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  #nav-toggle:checked ~ label.hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -4px);
+  }
+
+  #main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .section { padding: 72px 24px 60px; }
+
+  #s-hero { min-height: 100vh; padding: 0; }
+  #s-hero .hero-content { padding: 80px 24px 40px; }
+
+  .hero-title { font-size: 38px; }
+  .hero-brand-promise { font-size: 18px; }
+  .hero-strategic-intro { font-size: 14px; }
+
+  .four-priorities { grid-template-columns: 1fr; gap: 12px; max-width: 100%; }
+
+  .hero-stats {
+    margin-top: 36px;
+    padding-top: 24px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .hero-stat .stat-num { font-size: 26px; }
+
+  .hero-cta { flex-direction: column; gap: 10px; }
+  .btn-primary, .btn-secondary { text-align: center; }
+
+  .section-title { font-size: 30px; }
+
+  .cards-grid { grid-template-columns: 1fr; }
+  .kpi-grid { grid-template-columns: 1fr; }
+  .personality-grid { grid-template-columns: repeat(2, 1fr); }
+  .aud-grid { grid-template-columns: 1fr; }
+
+  .table-wrap { margin: 16px -4px; }
+  table { font-size: 12px; }
+  thead th { font-size: 9px; padding: 8px 10px; }
+  tbody td { padding: 10px 10px; }
+
+  .campaign-meta { flex-direction: column; gap: 12px; }
+
+  .phase-header { flex-direction: column; align-items: flex-start; gap: 6px; }
+
+  .brand-promise-display { padding: 24px 20px; }
+  .brand-promise-display .bp-text { font-size: 26px; }
+
+  .pull-quote p { font-size: 17px; }
+  .pull-quote { padding: 14px 18px; }
+}
+
+/* ── CAMPAIGN CARDS ── */
+.campaign-card { display: block; background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 28px 30px; margin: 20px 0; position: relative; overflow: hidden; }
+.campaign-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--aurora); }
+.campaign-card.gold::before { background: var(--gold); }
+.campaign-card.blue::before { background: #5b9bd8; }
+.campaign-card.green::before { background: #6db87c; }
+.campaign-num { display: block; width: 100%; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--aurora); font-weight: 500; margin-bottom: 6px; }
+.campaign-card.gold .campaign-num { color: var(--gold); }
+.campaign-card.blue .campaign-num { color: #5b9bd8; }
+.campaign-card.green .campaign-num { color: #6db87c; }
+.campaign-title { display: block; width: 100%; font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--text); margin-bottom: 6px; }
+.campaign-idea { font-size: 13px; color: var(--text-dim); font-style: italic; margin-bottom: 16px; line-height: 1.55; }
+.campaign-meta { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+.campaign-meta-item .meta-label { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px; }
+.campaign-meta-item .meta-value { font-size: 12.5px; color: var(--text-mid); }
+
+/* ── CHANNEL PRIORITIES ── */
+.priority-row { display: flex; align-items: flex-start; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+.priority-row:last-child { border-bottom: none; }
+.priority-badge { min-width: 96px; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; color: var(--bg); background: var(--aurora); padding: 4px 8px; border-radius: 2px; text-align: center; margin-top: 2px; flex-shrink: 0; }
+.priority-badge.optimize { background: var(--gold); }
+.priority-badge.activate { background: #5b9bd8; }
+.priority-badge.elevate  { background: #b07cd8; }
+.priority-badge.test     { background: var(--text-dim); }
+.channel-name { font-weight: 500; color: var(--text); font-size: 14px; margin-bottom: 3px; }
+.channel-why { font-size: 12.5px; color: var(--text-dim); line-height: 1.5; }
+
+/* ── RISK ITEMS (always open) ── */
+.risk-item { border: 1px solid var(--border); border-radius: 4px; margin-bottom: 16px; overflow: hidden; background: var(--bg2); }
+.risk-header { display: flex; align-items: flex-start; gap: 14px; padding: 18px 20px 0; }
+.risk-icon { width: 28px; height: 28px; border-radius: 50%; background: rgba(224,92,92,0.15); border: 1px solid rgba(224,92,92,0.3); display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; color: var(--red); margin-top: 2px; }
+.risk-title { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.45; }
+.risk-body { padding: 12px 20px 20px 62px; }
+.risk-body p { font-size: 13.5px; color: var(--text-dim); margin-bottom: 12px; }
+.risk-mitigation { background: rgba(62,207,178,0.05); border: 1px solid rgba(62,207,178,0.15); border-radius: 3px; padding: 12px 16px; margin-top: 4px; }
+.mit-label { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--aurora); font-weight: 500; margin-bottom: 6px; }
+.risk-mitigation p { font-size: 13px; color: var(--text-dim); margin: 0; }
+
+/* ── PHASE BLOCKS ── */
+.phase-block { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; margin-bottom: 20px; overflow: hidden; }
+.phase-header { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; background: var(--bg3); border-bottom: 1px solid var(--border); }
+.phase-label { display: flex; align-items: center; gap: 14px; }
+.phase-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--aurora); flex-shrink: 0; }
+.phase-dot.gold { background: var(--gold); } .phase-dot.blue { background: #5b9bd8; } .phase-dot.green { background: #6db87c; }
+.phase-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--text); }
+.phase-dates { font-size: 11px; color: var(--aurora); letter-spacing: 0.08em; font-weight: 500; }
+.phase-focus { padding: 14px 24px; font-size: 13px; color: var(--text-mid); font-style: italic; border-bottom: 1px solid var(--border); line-height: 1.6; }
+
+/* ── AUDIENCE CARDS ── */
+.audience-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 24px; margin-bottom: 16px; }
+.aud-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; }
+.aud-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--text); }
+.aud-badge { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bg); background: var(--aurora); padding: 4px 8px; border-radius: 2px; font-weight: 500; }
+.aud-badge.secondary { background: var(--gold); } .aud-badge.tertiary { background: #5b9bd8; } .aud-badge.corp { background: var(--text-dim); }
+.aud-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 12px; }
+.aud-cell-label { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px; font-weight: 500; }
+.aud-cell p { font-size: 12.5px; color: var(--text-mid); margin: 0; line-height: 1.55; }
+
+/* ── KPI GRID ── */
+.kpi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 16px 0; }
+.kpi-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 16px 18px; }
+.kpi-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); font-weight: 500; margin-bottom: 6px; }
+.kpi-value { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; color: var(--aurora); line-height: 1; margin-bottom: 4px; }
+.kpi-desc { font-size: 12px; color: var(--text-dim); line-height: 1.45; }
+
+/* ── BRAND PROMISE DISPLAY ── */
+.brand-promise-display { background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(62,207,178,0.05) 100%); border: 1px solid rgba(201,168,76,0.25); border-radius: 4px; padding: 32px 36px; margin: 24px 0; text-align: center; }
+.brand-promise-display .bp-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 14px; }
+.brand-promise-display .bp-text { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-style: italic; font-weight: 300; color: var(--text); letter-spacing: 0.02em; line-height: 1.2; margin: 0; }
+
+/* ── PERSONALITY GRID ── */
+.personality-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0; }
+.personality-item { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 14px 16px; }
+.p-word { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--text); margin-bottom: 6px; }
+.personality-item p { font-size: 12px; color: var(--text-dim); margin: 0; line-height: 1.5; }
+
+/* ── NOT LIST ── */
+.not-item { display: flex; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border); }
+.not-item:last-child { border-bottom: none; }
+.not-x { color: var(--red); font-size: 14px; font-weight: 500; flex-shrink: 0; margin-top: 1px; }
+.not-title { font-size: 13.5px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+.not-desc { font-size: 12.5px; color: var(--text-dim); line-height: 1.5; }
+
+/* ── NEXT STEPS ── */
+.next-steps-group { margin-bottom: 36px; }
+.next-steps-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid rgba(201,168,76,0.2); }
+.step-item { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.step-item:last-child { border-bottom: none; }
+.step-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--aurora); flex-shrink: 0; margin-top: 7px; }
+.step-text { font-size: 13.5px; color: var(--text-mid); line-height: 1.65; }
+.step-text strong { color: var(--text); font-weight: 500; }
+
+/* ── WEBSITE RECS ── */
+.page-rec { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 24px 26px; margin-bottom: 16px; }
+.rec-page { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--aurora); font-weight: 500; margin-bottom: 8px; }
+.rec-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--text); margin-bottom: 12px; }
+.rec-list { list-style: none; margin: 0; padding: 0; }
+.rec-list li { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--text-dim); line-height: 1.55; }
+.rec-list li:last-child { border-bottom: none; }
+.rec-list li::before { content: '→'; color: var(--aurora); flex-shrink: 0; margin-top: 1px; }
+.rec-list li strong { color: var(--text); font-weight: 500; }
+
+/* ── INTRO BOX ── */
+.intro-box { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 28px 32px; margin: 32px 0; }
+.intro-box p { font-size: 15px; color: var(--text-mid); line-height: 1.8; margin: 0; }
+.intro-box p + p { margin-top: 14px; }
+</style>
+</head>
+<body>
+
+<!-- Mobile nav toggle (checkbox hack — no JS required) -->
+<input type="checkbox" id="nav-toggle">
+<label class="hamburger" for="nav-toggle">
+  <span></span>
+  <span></span>
+  <span></span>
+</label>
+<label class="nav-overlay" for="nav-toggle"></label>
+
+<nav id="sidebar">
+  <div class="sidebar-brand">
+    <div class="resort-name">Northern Lights Resort & Spa</div>
+    <span class="strategy-label">2026 Marketing Strategy</span>
+  </div>
+  <div class="nav-section-label">Overview</div>
+  <div class="nav-item" data-sec="s-hero"><a href="#s-hero"><span class="nav-num">—</span><span class="nav-label">Strategy Overview</span></a></div>
+  <div class="nav-section-label">Strategy</div>
+  <div class="nav-item" data-sec="s-exec"><a href="#s-exec"><span class="nav-num">01</span><span class="nav-label">Executive Summary</span></a></div>
+  <div class="nav-item" data-sec="s-situation"><a href="#s-situation"><span class="nav-num">02</span><span class="nav-label">Situation Analysis</span></a></div>
+  <div class="nav-item" data-sec="s-audiences"><a href="#s-audiences"><span class="nav-num">03</span><span class="nav-label">Audiences</span></a></div>
+  <div class="nav-item" data-sec="s-positioning"><a href="#s-positioning"><span class="nav-num">04</span><span class="nav-label">Strategic Positioning</span></a></div>
+  <div class="nav-section-label">Execution</div>
+  <div class="nav-item" data-sec="s-channels"><a href="#s-channels"><span class="nav-num">05</span><span class="nav-label">Marketing Channel Plan</span></a></div>
+  <div class="nav-item" data-sec="s-content"><a href="#s-content"><span class="nav-num">06</span><span class="nav-label">Content & Storytelling</span></a></div>
+  <div class="nav-item" data-sec="s-campaigns"><a href="#s-campaigns"><span class="nav-num">07</span><span class="nav-label">Campaign Opportunities</span></a></div>
+  <div class="nav-item" data-sec="s-website"><a href="#s-website"><span class="nav-num">08</span><span class="nav-label">Website Recommendations</span></a></div>
+  <div class="nav-section-label">Measurement</div>
+  <div class="nav-item" data-sec="s-kpis"><a href="#s-kpis"><span class="nav-num">09</span><span class="nav-label">KPIs & Reporting</span></a></div>
+  <div class="nav-section-label">Next Steps</div>
+  <div class="nav-item" data-sec="s-phasing"><a href="#s-phasing"><span class="nav-num">10</span><span class="nav-label">Phasing & Timeline</span></a></div>
+  <div class="nav-item" data-sec="s-risks"><a href="#s-risks"><span class="nav-num">11</span><span class="nav-label">Risks</span></a></div>
+  <div class="nav-item" data-sec="s-nextsteps"><a href="#s-nextsteps"><span class="nav-num">12</span><span class="nav-label">Next Steps</span></a></div>
+  <div class="sidebar-footer">Junction Consulting · April 2026</div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<section id="s-hero" class="section">
+  <div class="hero-bg"></div>
+  <div class="hero-aurora"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">2026 Marketing Strategy</div>
+    <h1 class="hero-title">The story hasn't<br>caught up to the<br><em>experience</em>.</h1>
+    <p class="hero-brand-promise">Arrive. Exhale. The Yukon is yours.</p>
+    <p class="hero-strategic-intro">Northern Lights Resort & Spa enters 2026 with extraordinary foundations: a 5.0 TripAdvisor rating across 1,300+ reviews, #1 Google rankings across every commercial aurora term, and editorial coverage in the New York Times, Washington Post, and Condé Nast Traveller. The 2026 strategy closes the gap between that product and the marketing that represents it.</p>
+    <div class="four-priorities">
+      <a href="#s-exec" class="priority-card"><div class="p-label">Priority 01</div><div class="p-title">Elevated Storytelling</div><p class="p-desc">Close the gap between the quality of the experience and the quality of how it's told, with monthly content shoots, a dedicated winter shoot with homepage video, and a redesigned homepage.</p></a>
+      <a href="#s-channels" class="priority-card"><div class="p-label">Priority 02</div><div class="p-title">Smarter Conversion</div><p class="p-desc">Deploy the 6,350-subscriber email list properly. Fix the GA4 gap. Reduce friction at every stage of the discovery-to-booking journey.</p></a>
+      <a href="#s-audiences" class="priority-card"><div class="p-label">Priority 03</div><div class="p-title">Diversified Markets</div><p class="p-desc">Formalise Mexico and Australia in parallel — both self-discovering, both ready for deliberate activation. Sustain Canada, run pragmatic tests in Korea and Singapore. Reduce dependence on a softening U.S. core.</p></a>
+      <a href="#s-positioning" class="priority-card"><div class="p-label">Priority 04</div><div class="p-title">Competitive Elevation</div><p class="p-desc">Pursue Relais & Chateaux and Virtuoso. Build the trust infrastructure paid advertising cannot replicate.</p></a>
+    </div>
+    <div class="hero-cta">
+      <a href="#s-exec" class="btn-primary">Read Strategy</a>
+      <a href="#s-campaigns" class="btn-secondary">View Campaigns</a>
+      <a href="#s-nextsteps" class="btn-secondary">Next Steps</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="stat-num">5.0</div><div class="stat-label">TripAdvisor · 1,300+ reviews</div></div>
+      <div class="hero-stat"><div class="stat-num">61%</div><div class="stat-label">Email open rate (3× benchmark)</div></div>
+      <div class="hero-stat"><div class="stat-num">260</div><div class="stat-label">Dark nights per year</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 EXEC SUMMARY -->
+<section id="s-exec" class="section">
+  <div class="section-header">
+    <div class="section-num">01</div>
+    <h1 class="section-title">Executive Summary</h1>
+    <p class="section-subtitle">The strategic problem is not awareness. It is the gap between what prospective guests find when they discover the resort and the experience that awaits them when they arrive.</p>
+  </div>
+  <div class="intro-box">
+    <p>Northern Lights Resort & Spa enters 2026 in a position most luxury hospitality properties would trade for: a product the industry's most credible voices have already validated, a guest satisfaction record almost no property at this scale achieves, and a discovery engine (organic search, editorial referrals, AI-driven traffic) that is already outperforming.</p>
+    <p>The April 2026 booking pace, at roughly 30% of capacity against a historical 70–80% at the same point in the year, makes the urgency concrete. This strategy addresses it directly.</p>
+  </div>
+  <h2>Three conditions make this the moment</h2>
+  <div class="cards-grid">
+    <div class="card"><div class="card-tag">Condition 01</div><div class="card-title">The core market is softening</div><p>The U.S. (historically 70–75% of bookings) has softened to ~60%, with guests booking later and with more hesitation as cross-border travel sentiment shifts.</p></div>
+    <div class="card"><div class="card-tag">Condition 02</div><div class="card-title">Replacement demand is materialising</div><p>Canadian bookings have grown from 15–20% to 26–27%. Mexico now sits at 4–5% of bookings — the third-largest source market — with Destination Canada's Spanish-language program driving 43 Mexican referrals YTD against just 1 in the same period of 2025, and Spanish-language ChatGPT traffic up twelvefold. Australian referral traffic is arriving from Qantas.com, Luxury Travel Magazine AU, and Australian Geographic, with no paid investment behind it.</p></div>
+    <div class="card"><div class="card-tag">Condition 03</div><div class="card-title">Macro tailwinds are favourable</div><p>The cool-cation shift, the splurge economy, and Iceland's grip on the global aurora narrative all create conditions that favour Northern Lights Resort if the marketing is ready to meet them.</p></div>
+  </div>
+  <h2>The four strategic priorities</h2>
+  <div class="table-wrap"><table><thead><tr><th>Priority</th><th>Strategic focus</th><th>Primary lever</th></tr></thead><tbody>
+    <tr><td><strong>Elevated Storytelling</strong></td><td>Close the gap between the quality of the experience and the quality of how it's represented online.</td><td>Monthly content shoots, dedicated winter shoot and homepage video, website redesign</td></tr>
+    <tr><td><strong>Smarter Conversion</strong></td><td>Deploy the email list with the frequency its open rate deserves. Fix analytics. Reduce inquiry friction.</td><td>Email cadence, GA4 instrumentation, website quick wins</td></tr>
+    <tr><td><strong>Diversified Markets</strong></td><td>Formalise Mexico and Australia in parallel. Sustain the Canadian base replacing U.S. volume. Pragmatic tests in Korea and Singapore.</td><td>Campaign 3, creator trips, trade partnerships</td></tr>
+    <tr><td><strong>Competitive Elevation</strong></td><td>Pursue institutional designations that build trust at scale and cost little directly.</td><td>Relais & Chateaux, Virtuoso applications</td></tr>
+  </tbody></table></div>
+  <div class="pull-quote">
+    <p>The goal is not to outspend competitors. It is to out-story them, and this resort, with its 5.0 across 1,300 reviews, its 260 dark nights, its aurora visible from a private chalet, and its family-run operating model, has more story to tell than any property in its category.</p>
+  </div>
+</section>
+
+<!-- 02 SITUATION -->
+<section id="s-situation" class="section">
+  <div class="section-header">
+    <div class="section-num">02</div>
+    <h1 class="section-title">Situation Analysis</h1>
+    <p class="section-subtitle">A product that consistently outperforms the stories being told about it.</p>
+  </div>
+  <h2>2.1 Exceptional foundations, under-expressed</h2>
+  <p>The resort ranks #1 on Google for <em>luxury northern lights tours</em>, <em>northern lights canada packages</em>, <em>yukon vacation packages</em>, and <em>spa resorts in yukon canada</em>. ChatGPT.com is sending 1,217 referral sessions (comparable to Bing) with no deliberate optimization. Destination Canada alone drove 1,159 sessions in the audit window; Travel & Leisure 514; Qantas.com 361 without any targeting.</p>
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-label">Email Open Rate</div><div class="kpi-value">61.1%</div><div class="kpi-desc">vs. 20–30% industry benchmark. Only 3 campaigns in 9 months.</div></div>
+    <div class="kpi-card"><div class="kpi-label">Booking Pace (Apr 2026)</div><div class="kpi-value">~30%</div><div class="kpi-desc">of capacity vs. historical 70–80% at same point. The urgency is concrete.</div></div>
+    <div class="kpi-card"><div class="kpi-label">Google Ads CPA (Peak)</div><div class="kpi-value">CA$22–24</div><div class="kpi-desc">Efficient, but GA4 Key Events not configured, so attribution is partial.</div></div>
+    <div class="kpi-card"><div class="kpi-label">AI Referral Sessions</div><div class="kpi-value">1,217</div><div class="kpi-desc">From ChatGPT alone, with no deliberate optimization. Significant upside.</div></div>
+  </div>
+  <div class="pull-quote"><p>The headline insight: the current marketing communicates what Northern Lights Resort offers. It does not yet communicate how it feels to be there.</p></div>
+  <h2>2.2 A shifting market, and an emerging opportunity</h2>
+  <div class="table-wrap"><table><thead><tr><th>Market</th><th>Current share</th><th>Prior year</th><th>Trajectory</th></tr></thead><tbody>
+    <tr><td><strong>United States</strong></td><td>~60%</td><td>~70–75%</td><td class="traj-down">▼ Softening</td></tr>
+    <tr><td><strong>Canada</strong></td><td>~26–27%</td><td>~15–20%</td><td class="traj-up">▲ Growing</td></tr>
+    <tr><td><strong>Mexico</strong></td><td>~4–5%</td><td>Comparable</td><td class="traj-up">▲ Growing organically</td></tr>
+    <tr><td><strong>Australia</strong></td><td>~3–5%</td><td>Minimal</td><td class="traj-up">▲ Emerging</td></tr>
+    <tr><td><strong>South Korea / Taiwan</strong></td><td>~2–3%</td><td>Negligible</td><td class="traj-up">▲ Emerging</td></tr>
+    <tr><td><strong>Singapore</strong></td><td>~1–2%</td><td>Negligible</td><td class="traj-up">▲ Emerging</td></tr>
+    <tr><td><strong>Japan</strong></td><td>~1–2%</td><td>Negligible</td><td class="traj-complex">● Complex</td></tr>
+  </tbody></table></div>
+  <p>Australian interest is emerging without any deliberate targeting. Qantas.com alone drove 361 sessions, and Luxury Travel Magazine AU, Escape.com.au, and Australian Geographic are sending additional organic traffic. Mexico sits just above this at 4–5% of bookings, also without any deliberate Spanish-language marketing, Mexican press placement, or paid targeting.</p>
+  <p>Mexican organic-side traffic is up 12% year-over-year against the same period in 2025. Destination Canada's Spanish-language site (travel.destinationcanada.com) has grown from 1 Mexican user in early 2025 to 43 YTD 2026, and Spanish-language ChatGPT traffic has grown twelvefold. Mexican-language travel media has sent effectively zero referrals to date, which makes Mexican luxury press the most obvious untouched activation opportunity in the international channel mix.</p>
+  <p>Korean, Singaporean, and Japanese referral sources (tripadvisor.co.kr, naver.com, yukonjapan.jp, tripadvisor.jp) appear in the data, corroborating emerging interest across Asian luxury-travel markets.</p>
+  <h2>2.3 Competitive position</h2>
+  <div class="cards-grid">
+    <div class="card"><div class="card-tag">Aurora Category</div><div class="card-title">vs. Borealis Basecamp & Blachford</div><p>NLR has structural advantages: private Aurora Glass Chalets, road access from Whitehorse (no fly-in), and an all-inclusive model neither competitor leads with.</p></div>
+    <div class="card"><div class="card-tag">Wilderness Luxury Category</div><div class="card-title">vs. Nimmo Bay, Sonora, Clayoquot</div><p>These three set the marketing standard the brand should aspire to match, but none have the aurora. NLR has the full-spectrum product. The marketing hasn't reflected that yet.</p></div>
+  </div>
+</section>
+
+<!-- 03 AUDIENCES -->
+<section id="s-audiences" class="section">
+  <div class="section-header">
+    <div class="section-num">03</div>
+    <h1 class="section-title">Audiences</h1>
+    <p class="section-subtitle">Four distinct guest segments, each with different motivations, purchase barriers, and discovery behaviours.</p>
+  </div>
+  <div class="audience-card">
+    <div class="aud-header"><div class="aud-title">Affluent Travellers</div><span class="aud-badge">Primary · Core</span></div>
+    <p style="font-size:13.5px;color:var(--text-mid);margin-bottom:12px;line-height:1.65;">Experienced, high-net-worth travellers graduating beyond conventional luxury (Four Seasons, European grand hotels, the Caribbean premium set). They book on accumulated trust signals, not feature lists.</p>
+    <div class="aud-grid">
+      <div class="aud-cell"><div class="aud-cell-label">Profile</div><p>45–70, HHI $500K+. Primarily U.S. (softening), Canadian (growing), Mexican (established, concentrated in CDMX and Monterrey), Australian (emerging). Couples or small groups.</p></div>
+      <div class="aud-cell"><div class="aud-cell-label">Key Motivators</div><p>Rare experiences worth telling. Service requiring no guest management. Curated prestige signals.</p></div>
+      <div class="aud-cell"><div class="aud-cell-label">Purchase Barriers</div><p>Cross-border uncertainty (U.S.); hesitation about Canadian wilderness as a luxury category; storytelling gap vs. Nimmo/Sonora/Clayoquot.</p></div>
+      <div class="aud-cell"><div class="aud-cell-label">Best-Fit Campaigns</div><p>Campaign 2 (Luxury Yukon Storytelling) · Campaign 4 (Earned Media Amplification)</p></div>
+    </div>
+  </div>
+  <div class="audience-card">
+    <div class="aud-header"><div class="aud-title">Bucket-List Travellers</div><span class="aud-badge secondary">Primary · Growth</span></div>
+    <p style="font-size:13.5px;color:var(--text-mid);margin-bottom:12px;line-height:1.65;">The largest growth opportunity in the 2026 strategy. Defined psychographically: the aurora has been a specific, named goal for months or years. They will invest significantly when they find the right product. Aurora-certainty anxiety is the dominant purchase barrier.</p>
+    <div class="aud-grid">
+      <div class="aud-cell"><div class="aud-cell-label">Profile</div><p>40–65, HHI $150K+. Canadian, U.S., Mexican, Australian, increasingly Korean/Singaporean.</p></div>
+      <div class="aud-cell"><div class="aud-cell-label">Key Motivators</div><p>The aurora as a once-in-a-lifetime achievement. <em>Certainty</em> they will see the lights. A worry-free experience matching the emotional weight of the purchase.</p></div>
+      <div class="aud-cell"><div class="aud-cell-label">Purchase Barriers</div><p>Aurora-certainty anxiety; uncertainty about Yukon vs Iceland; perceived remoteness; price vs. a 'simpler' Scandinavia trip.</p></div>
+      <div class="aud-cell"><div class="aud-cell-label">Best-Fit Campaigns</div><p>Campaign 1 (Education Series) · Campaign 3 (Closer Than You Think)</p></div>
+    </div>
+    <div class="callout aurora-border">
+      <div class="callout-label">The Iceland-default mental model</div>
+      <p style="font-style:italic;color:var(--text);">The Iceland-default mental model is most ingrained for Mexican travellers, for whom Scandinavian aurora trips are the conventional luxury reference point in Mexican travel editorial. Whitehorse via Vancouver is roughly 10–12 hours from CDMX against 14–17 hours to Reykjavík via a European hub — the 'closer than you think' framing has more arithmetic behind it for Mexico than for any other market in the priority set.</p>
+    </div>
+  </div>
+  <div class="audience-card">
+    <div class="aud-header"><div class="aud-title">High-Net-Worth Individuals</div><span class="aud-badge tertiary">Secondary</span></div>
+    <p style="font-size:13.5px;color:var(--text-mid);margin-bottom:12px;line-height:1.65;">Private-jet travellers, C-suite executives, family office decision-makers. Small in volume but disproportionately valuable in revenue and referral dynamics. The direct booking model is a feature, not a limitation.</p>
+    <div class="aud-grid">
+      <div class="aud-cell"><div class="aud-cell-label">Profile</div><p>50–75. Private jet or first-class. Concentrated in U.S. Northeast, Silicon Valley, London, Dubai, Singapore, Sydney.</p></div>
+      <div class="aud-cell"><div class="aud-cell-label">Key Motivators</div><p>Total privacy. Zero friction. 16-guest intimacy. Experiences their peers haven't had.</p></div>
+      <div class="aud-cell"><div class="aud-cell-label">Purchase Barriers</div><p>Any friction in the inquiry-to-booking flow. Anything that signals 'mass market.'</p></div>
+      <div class="aud-cell"><div class="aud-cell-label">Discovery Channels</div><p>Virtuoso, Amex Centurion Travel, Departures, private-aviation partnerships, direct word-of-mouth. Spanish-language search and ChatGPT queries; Mexican luxury travel media (CN Traveler Mexico, Travesías, Vogue Living Mexico); travel advisors in Mexico City and Monterrey.</p></div>
+    </div>
+  </div>
+  <div class="audience-card">
+    <div class="aud-header"><div class="aud-title">Corporate Retreat Buyers</div><span class="aud-badge corp">Activation Track</span></div>
+    <p style="font-size:13.5px;color:var(--text-mid);margin-bottom:12px;line-height:1.65;">A full-property buyout for 16 is one booking, sidestepping the individual room inventory challenge entirely. The resort structure is ideal for executive team retreats and board offsites. The website currently has no dedicated corporate surface.</p>
+    <div class="aud-grid">
+      <div class="aud-cell"><div class="aud-cell-label">Profile</div><p>Executive assistants, corporate travel managers, senior leaders in tech, finance, and professional services. North America primary market.</p></div>
+      <div class="aud-cell"><div class="aud-cell-label">Activation Track</div><p>Dedicated website section + LinkedIn outreach targeting EAs and travel managers + selective corporate travel agency partnership.</p></div>
+    </div>
+  </div>
+  <h2>Priority Markets</h2>
+  <p>The four audiences above are psychographic. The table below is geographic — the markets carrying current bookings and the markets where the resort is being discovered without deliberate investment. Each row sets the strategic intent for 2026.</p>
+  <div class="table-wrap"><table><thead><tr><th>Market</th><th>Share</th><th>Trajectory</th><th>2026 Strategic Role</th></tr></thead><tbody>
+    <tr><td><strong>United States</strong></td><td>~60%</td><td class="traj-down">▼ Softening</td><td>Defend the base. Lean into the existing earned-media footprint and review-driven trust. No new market-specific activation; the U.S. creator slot is the lowest-leverage hosted trip and is a candidate for reallocation to Mexico.</td></tr>
+    <tr><td><strong>Canada</strong></td><td>~26–27%</td><td class="traj-up">▲ Growing</td><td>Sustain the trajectory. Replacement demand for U.S. softening, already materialising through organic and earned channels. Canadian audiences carry forward through Campaign 2 luxury storytelling without requiring a dedicated activation.</td></tr>
+    <tr><td><strong>Mexico</strong></td><td>~4–5%</td><td class="traj-up">▲ Growing organically</td><td>Third-largest source market with no dedicated activation to date. Formalise the Spanish-language conversion layer (site, inquiry path, lead magnet), open relationships with Mexican luxury press (currently zero placements), and add Mexico to Campaign 3 paid and trade activation alongside Australia.</td></tr>
+    <tr><td><strong>Australia</strong></td><td>~3–5%</td><td class="traj-up">▲ Emerging</td><td>Already self-discovering through Qantas.com, Luxury Travel Magazine AU, and Australian Geographic referrals. Campaign 3's Australian creator trip (Q3), Scandinavia-intercept search, and English-language press wave are the activation set. Most immediately actionable diversification market in the priority mix.</td></tr>
+    <tr><td><strong>Korea / Singapore</strong></td><td>~3–5%</td><td class="traj-up">▲ Emerging</td><td>Pragmatic Phase 3 paid test with translated creative. The 2027 scale-up decision is made in Q4 based on test data, not before.</td></tr>
+    <tr><td><strong>Japan</strong></td><td>~1–2%</td><td class="traj-complex">● Complex</td><td>Operational decision precedes the marketing decision (see Risks, Section 11). 2026 is for clarifying booking-policy adaptation feasibility; activation is a 2027 question.</td></tr>
+  </tbody></table></div>
+  <div class="callout aurora-border">
+    <div class="callout-label">Investment Philosophy</div>
+    <p>Formalise Mexico and Australia in parallel — Mexico is the larger of the two by current share but requires a Spanish-language activation layer; Australia is smaller but more immediately actionable in English. The two are complementary priorities, not alternatives.</p>
+  </div>
+</section>
+
+<!-- 04 POSITIONING -->
+<section id="s-positioning" class="section">
+  <div class="section-header">
+    <div class="section-num">04</div>
+    <h1 class="section-title">Strategic Positioning</h1>
+    <p class="section-subtitle">The foundation every downstream decision flows from. The product is already extraordinary. The positioning must now make the marketing reflect that.</p>
+  </div>
+  <div class="callout gold-border">
+    <div class="callout-label">Positioning Statement</div>
+    <p style="color:var(--text);font-size:15px;line-height:1.7;"><strong>Northern Lights Resort & Spa is the Yukon's worry-free luxury retreat.</strong> A private, sixteen-guest property where the aurora overhead is one of many reasons you'll never forget your stay, and where the only decision you make is when to go.</p>
+  </div>
+  <div class="brand-promise-display">
+    <div class="bp-label">Brand Promise</div>
+    <p class="bp-text">Arrive. Exhale. The Yukon is yours.</p>
+  </div>
+  <h2>Frame of Reference</h2>
+  <p>Northern Lights Resort competes in the category of <strong>world-class, all-inclusive wilderness luxury retreats</strong>, the category defined by Nimmo Bay, Sonora, and Clayoquot, and not in the category of "Northern Lights tours" or "aurora-viewing hotels." This distinction determines everything.</p>
+  <h2>Points of Difference</h2>
+  <div class="cards-grid">
+    <div class="card"><div class="card-tag">POD 01</div><div class="card-title">The only aurora property with a full wilderness luxury retreat</div><p>Aurora properties don't have the retreat. Retreat properties don't have the aurora. NLR is the only property in the world that sits in both categories.</p></div>
+    <div class="card"><div class="card-tag">POD 02</div><div class="card-title">Private chalets, 16 guests, road access from Whitehorse</div><p>Blachford has shared bathrooms. Nimmo/Sonora/Clayoquot are fly-in only. NLR has fully private Aurora Glass Chalets and a 25km drive, removing the fly-in barrier for first-time luxury travellers.</p></div>
+    <div class="card"><div class="card-tag">POD 03</div><div class="card-title">World-class aurora, closer than most travellers think</div><p>Same bucket-list experience as Iceland. No transatlantic flight. Dramatically less crowded. Significantly better value at current exchange rates for Australian and North American travellers.</p></div>
+  </div>
+  <h2>Brand Personality</h2>
+  <div class="personality-grid">
+    <div class="personality-item"><div class="p-word">Attentive</div><p>Every detail considered before the guest knew to ask.</p></div>
+    <div class="personality-item"><div class="p-word">Warm</div><p>Family-run, not corporate-run. Tobias, Lynn, and the team are part of the story.</p></div>
+    <div class="personality-item"><div class="p-word">Assured</div><p>16 guests, 5,500 satisfied before them. This has been done well, many times.</p></div>
+    <div class="personality-item"><div class="p-word">Cinematic</div><p>The setting, the aurora, the chalet interiors, the dining: all deserve Nimmo Bay-calibre visual language.</p></div>
+    <div class="personality-item"><div class="p-word">Northern</div><p>Rooted in Yukon place, not generic luxury. The cold, the silence, the scale.</p></div>
+    <div class="personality-item"><div class="p-word">Unhurried</div><p>The pace of an aurora display. The antithesis of busy.</p></div>
+  </div>
+  <h2>What We Are Not</h2>
+  <div>
+    <div class="not-item"><div class="not-x">✕</div><div><div class="not-title">Not an aurora tour</div><div class="not-desc">Competing on aurora access alone collapses NLR into a category two rungs below where its pricing and reviews already sit.</div></div></div>
+    <div class="not-item"><div class="not-x">✕</div><div><div class="not-title">Not a remote-but-rustic wilderness lodge</div><div class="not-desc">Shared bathrooms and 'authentic northern roughness' are Blachford's positioning. NLR's product is private chalets, chef-driven dining, and spa services.</div></div></div>
+    <div class="not-item"><div class="not-x">✕</div><div><div class="not-title">Not competing with Scandinavia on Scandinavian terms</div><div class="not-desc">The message is not 'as good as Iceland'; it's 'the North American traveller's answer to Iceland, without the transatlantic flight.'</div></div></div>
+    <div class="not-item"><div class="not-x">✕</div><div><div class="not-title">Not a budget-luxury hybrid</div><div class="not-desc">Apologizing for the price, or framing the experience as accessible-luxury, erodes the positioning that the 5.0 review base has earned.</div></div></div>
+  </div>
+</section>
+
+<!-- 05 CHANNELS -->
+<section id="s-channels" class="section">
+  <div class="section-header">
+    <div class="section-num">05</div>
+    <h1 class="section-title">Marketing Channel Plan</h1>
+    <p class="section-subtitle">Many channels already work individually. The 2026 opportunity is to make them work as a connected system where each has a defined role and hands off cleanly to the next.</p>
+  </div>
+  <h2>Channel Prioritization</h2>
+  <div>
+    <div class="priority-row"><span class="priority-badge">Foundational</span><div><div class="channel-name">Email · Earned Media · Organic Search</div><div class="channel-why">All three already outperform benchmarks. The work is operationalizing and scaling, not rebuilding. Highest ROI per hour of effort.</div></div></div>
+    <div class="priority-row"><span class="priority-badge elevate">Elevate</span><div><div class="channel-name">Video Platforms (YouTube + Short-Form) · Organic Social</div><div class="channel-why">Largest gap between current state and aspirational set. Monthly content shoots starting in summer give this channel a consistent supply of new material for the first time.</div></div></div>
+    <div class="priority-row"><span class="priority-badge activate">Activate</span><div><div class="channel-name">Partnerships · Travel Trade</div><div class="channel-why">Low cost, long lead times. Relais & Chateaux and Virtuoso applications should start Q2 2026, as both take months to secure. Destination Canada's Mexican-market program (travel.destinationcanada.com) is already the single largest Mexican referral source to the resort, sending 43 organic users YTD against 1 in the same period of 2025, with no formal relationship in place. A campaign inclusion, featured listing, or co-funded Mexican-market push converts an existing organic pattern into a deliberate channel.</div></div></div>
+    <div class="priority-row"><span class="priority-badge optimize">Optimize</span><div><div class="channel-name">Paid Advertising</div><div class="channel-why">Already running. Shift the Google/Meta balance, instrument conversion tracking, refresh creative. Current: Google CA$3,300–3,700/mo; Meta $417–1,200/mo.</div></div></div>
+    <div class="priority-row"><span class="priority-badge test">Test</span><div><div class="channel-name">LinkedIn (Corporate) · TikTok (Emerging Markets)</div><div class="channel-why">Low-cost tests in 2026; decide in Q4 whether to scale in 2027.</div></div></div>
+  </div>
+  <h2>Email: The Underused Asset</h2>
+  <div class="callout aurora-border">
+    <div class="callout-label">The Opportunity</div>
+    <p>6,350 subscribers. 57–64% open rate (3× industry benchmark). Three campaigns in nine months. Each send generated ~460 website visits and 60–80 inquiry intent actions. This list is one of the most engaged audiences in Canadian hospitality, running at one send every three months.</p>
+  </div>
+  <div class="table-wrap"><table><thead><tr><th>Period</th><th>Frequency</th><th>Rationale</th></tr></thead><tbody>
+    <tr><td><strong>Aug–Nov (peak booking)</strong></td><td>2×/month</td><td>Season opening, date announcements, booking urgency</td></tr>
+    <tr><td><strong>Dec–Mar (aurora season)</strong></td><td>2×/month</td><td>Occasion emails, last-availability urgency, in-season storytelling</td></tr>
+    <tr><td><strong>Apr–Jun (shoulder)</strong></td><td>1×/month</td><td>Keep warm; content-first, no hard sell</td></tr>
+    <tr><td><strong>Jul (pre-season ramp)</strong></td><td>2×/month</td><td>Next-season dates open; re-engage dormant subscribers</td></tr>
+  </tbody></table></div>
+  <h4>Four email segments</h4>
+  <div class="table-wrap"><table><thead><tr><th>Segment</th><th>Who they are</th><th>What they need</th></tr></thead><tbody>
+    <tr><td><strong>Warm leads</strong></td><td>Inquired but haven't booked</td><td>Social proof, current availability, direct CTA</td></tr>
+    <tr><td><strong>Engaged non-converters</strong></td><td>Opened 2+ emails, clicked, no inquiry</td><td>Occasion-specific urgency; a reason to act now</td></tr>
+    <tr><td><strong>Referral network</strong></td><td>Completed a stay</td><td>Advocacy prompts, referral mechanism, personal tone</td></tr>
+    <tr><td><strong>General subscribers</strong></td><td>Cold or early-stage opt-ins</td><td>Full experience journey: content first, conversion third</td></tr>
+  </tbody></table></div>
+  <h2>Earned Media</h2>
+  <p>Editorial credibility is the channel paid media cannot replicate. The resort already has top-tier coverage (NYT, Washington Post, Travel & Leisure, Condé Nast Traveller, National Geographic) that has aged into a static credentials list rather than a continuously renewing pipeline. The 2026 work converts earned media from a record of past validation into a standing programme.</p>
+  <h4>Two press waves per year</h4>
+  <p>A spring wave (May–June) and a fall wave (September–October), timed to seasonal editorial calendars — winter travel features and aurora-season urgency respectively. Each wave covers the tier-1 English-language set (NYT, T&L, Condé Nast Traveller, Departures, AFAR) plus market-specific titles. Australian press receives parallel pitches in both waves: Luxury Travel Magazine AU, Australian Geographic, Escape.com.au, and the Qantas in-flight title.</p>
+  <p>Mexican press is added in 2026 with Spanish-language pitch assets — CN Traveler Mexico, Travesías, Vogue Living Mexico, Expansión Vida, and Aeroméxico's in-flight magazine on the consumer side; Virtuoso Mexico and Mexican luxury travel advisor networks on trade. Mexican press has sent effectively zero referrals to date — every referrer in the YTD 2026 Mexican data is either a non-Mexican source reaching Mexican users, or a Spanish-language general travel platform. Mexican luxury press is the most obvious untouched opportunity in the international press mix.</p>
+  <h4>Hosted creator trips</h4>
+  <p>Four hosted creator trips in 2026, each producing 30–50 reusable assets that feed paid, social, and the website. A fifth creator trip — a Mexican luxury creator or travel journalist, Q3 or Q4 2026 — is added to the four-trip plan. Alternatively, reallocate the U.S. creator slot, which is the lowest-leverage given existing U.S. coverage. The Australian (Q3) and Mexican (Q3–Q4) trips are Campaign 3's two primary asset-generation activations.</p>
+  <h2>Search Visibility & AI Discovery</h2>
+  <p>Organic search is foundational and already outperforming benchmark across the commercial terms (see Section 2.1). The channel-plan work is protecting that position and extending it into informational territory the current blog does not cover — the Education Series in Campaign 1 is the primary mechanism. The twelve highest-volume aurora informational queries are the priority editorial targets; each long-form article and matched YouTube episode is engineered to capture both the search query and the resulting AI citation.</p>
+  <p>AI-driven discovery is the newer surface. ChatGPT alone is sending 1,217 referral sessions (comparable to Bing) with no deliberate optimisation. Gemini, Perplexity, and Copilot are smaller but tracking similarly. Structured-data implementation, fact-first formatting (specific numbers, named credentials, honest comparison tables), and the Aurora Planning Guide as a citable authoritative reference extend the resort's surface area in AI-generated travel recommendations.</p>
+  <p>Spanish-language AI discovery is growing fastest of any Mexican channel (twelvefold year-over-year). The structured-data and fact-first formatting planned for English-language AI readiness should be tested for Spanish-language query parity on the priority pages (homepage, packages, accommodations, about) once the Spanish site layer is live.</p>
+  <h2>Paid Media: Rebalance, Don't Rebuild</h2>
+  <p>Meta is structurally underinvested given the product's visual nature. February 2026 delivered 116 form submissions at CA$12.47 each; the product's appeal is working. The Google/Meta split should shift during the peak booking window (September–November) with Meta Advantage+ campaigns targeting affluent travellers 45–65 in the U.S. Northeast and Pacific Northwest, Canadian bookers in Ontario and BC, Australian travellers in NSW/VIC, and Mexican CDMX (primary) and Monterrey (secondary). Mexican-market creative runs in Spanish from launch; the Yukon vs Iceland comparative angle leads.</p>
+  <p><strong>Critical prerequisite:</strong> Do not increase paid media budgets until GA4 Key Events are confirmed tracking correctly. Optimization against incomplete conversion data produces bad allocation decisions.</p>
+</section>
+
+<!-- 06 CONTENT -->
+<section id="s-content" class="section">
+  <div class="section-header">
+    <div class="section-num">06</div>
+    <h1 class="section-title">Content & Storytelling Framework</h1>
+    <p class="section-subtitle">One narrative spine. Told consistently across every channel and format.</p>
+  </div>
+  <div class="callout gold-border">
+    <div class="callout-label">The Narrative Spine</div>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--text);line-height:1.6;">Under the aurora. Nothing to plan. Everything taken care of. The Yukon, the way it should be experienced, and the only decision you need to make is when to go.</p>
+  </div>
+  <h2>Video Strategy: Five Formats</h2>
+  <div class="table-wrap"><table><thead><tr><th>Format</th><th>Length</th><th>Job</th><th>Primary Channel</th></tr></thead><tbody>
+    <tr><td><strong>Winter Homepage Film</strong><br><em>"A Day Under the Northern Lights"</em></td><td>3–5 min</td><td>Produced during the dedicated winter shoot when first snow falls. Full sensory arc from arrival to aurora. Homepage hero, YouTube channel anchor, trade pitch asset.</td><td>Website · YouTube · Trade</td></tr>
+    <tr><td><strong>Aurora + Context Timelapses</strong></td><td>15–60 sec</td><td>Cold social discovery. Algorithm-rewarded ambient content with no language barrier.</td><td>Reels · Shorts · TikTok</td></tr>
+    <tr><td><strong>The Worry-Free Day</strong></td><td>60–90 sec</td><td>Shows the rhythm of a stay. Sells the positioning without stating it.</td><td>Reels · Email · Landing pages</td></tr>
+    <tr><td><strong>In-the-Chalet & Chef's Table</strong></td><td>45–60 sec</td><td>Sourced from monthly summer shoots. Closes the interior/dining visual gap the research identified.</td><td>Feed · Shorts · Email</td></tr>
+    <tr><td><strong>Aurora Education Long-Form</strong></td><td>8–15 min</td><td>Authority play. Captures informational search intent. Part of Campaign 1.</td><td>YouTube (primary)</td></tr>
+  </tbody></table></div>
+  <h2>The Four Social Content Pillars</h2>
+  <div class="cards-grid">
+    <div class="card"><div class="card-tag">Pillar 01</div><div class="card-title">Aurora Hours</div><p>The aurora as the headline. KP-index hooks, timelapse Reels, in-chalet viewing. 2–3 posts/week in aurora season. Instagram primary.</p></div>
+    <div class="card"><div class="card-tag">Pillar 02</div><div class="card-title">The Worry-Free Day</div><p>The rhythm of a stay. Morning coffee, Finnish sauna, Chef James Gao's table, staff pre-setting the chalet. 2 posts/week year-round.</p></div>
+    <div class="card"><div class="card-tag">Pillar 03</div><div class="card-title">The Yukon Beyond</div><p>The Yukon as a world-class wilderness destination. NLR as the lens. Dog mushing, wildlife, Klondike history, Indigenous context. 1–2 posts/week.</p></div>
+    <div class="card"><div class="card-tag">Pillar 04</div><div class="card-title">The People of NLR</div><p>Tobias, Lynn, Chef James Gao, the guides. Family-run is a differentiator; guests consistently cite it in reviews. 1 post/week.</p></div>
+  </div>
+  <h2>Guest Testimonial Usage</h2>
+  <p>The 1,300+ five-star reviews are the most underused asset in the current mix. The shift is from <em>testimonials-as-decoration</em> to <em>testimonials-as-proof</em>, each one placed to answer a specific purchase barrier.</p>
+  <div class="callout">
+    <div class="callout-label">The Rule</div>
+    <p>Generic five-star quotes ("Amazing experience!") are not usable. Every testimonial in every placement must contain a specific detail from the stay: a moment, a dish, a staff member, a view. If it could apply to any luxury lodge, it doesn't go in. This applies to every channel.</p>
+  </div>
+</section>
+
+<!-- 07 CAMPAIGNS -->
+<section id="s-campaigns" class="section">
+  <div class="section-header">
+    <div class="section-num">07</div>
+    <h1 class="section-title">Campaign Opportunities</h1>
+    <p class="section-subtitle">Four campaigns designed as a connected system. Each feeds the next. Campaign 1 builds discovery authority. Campaign 2 converts it into emotional desire. Campaign 3 drives booking. Campaign 4 amplifies all three continuously.</p>
+  </div>
+  <div class="campaign-card">
+    <div class="campaign-num">Campaign 01 · Education Series</div>
+    <div class="campaign-title">Northern Lights Education Series</div>
+    <div class="campaign-idea">Northern Lights Resort becomes the most authoritative source on aurora viewing in North America, online, on YouTube, and in AI travel recommendations.</div>
+    <p style="font-size:13.5px;color:var(--text-mid);line-height:1.65;margin-bottom:0;">A 12-episode YouTube series, fortnightly, 8–15 minutes per episode, paired with long-form companion articles. Captures informational search the current blog doesn't address. Earns trust long before any commercial conversation begins. Anchored by an Aurora Planning Guide PDF as the gated lead magnet.</p>
+    <div class="campaign-meta">
+      <div class="campaign-meta-item"><div class="meta-label">Primary Audience</div><div class="meta-value">Bucket-list travellers in research phase</div></div>
+      <div class="campaign-meta-item"><div class="meta-label">Timing</div><div class="meta-value">Production Q1–Q2 · Launch May 2026 · Through Nov</div></div>
+      <div class="campaign-meta-item"><div class="meta-label">Success Looks Like</div><div class="meta-value">10,000+ watch-hours yr 1 · 300+ new subscribers · AI referrals 1,300 → 3,000+</div></div>
+    </div>
+  </div>
+  <div class="campaign-card gold">
+    <div class="campaign-num">Campaign 02 · Luxury Storytelling</div>
+    <div class="campaign-title">The Yukon, Uninterrupted</div>
+    <div class="campaign-idea">The Yukon has a luxury face most affluent travellers have never seen. Northern Lights Resort is the lens. This campaign closes the documented visual and storytelling gap between NLR and the Nimmo/Sonora/Clayoquot aspirational set.</div>
+    <p style="font-size:13.5px;color:var(--text-mid);line-height:1.65;margin-bottom:0;"><strong>Anchor asset:</strong> the winter homepage film, <em>"A Day Under the Northern Lights"</em>, produced during the dedicated winter shoot when first snow falls, capturing the full aurora experience from a guest's perspective. Supporting visual content (chalet interiors, dining, spa, team) built progressively across the summer monthly shoots, closing the interior photography gap the research identified.</p>
+    <div class="campaign-meta">
+      <div class="campaign-meta-item"><div class="meta-label">Primary Audience</div><div class="meta-value">Affluent travellers · HNWI · Canadian market</div></div>
+      <div class="campaign-meta-item"><div class="meta-label">Timing</div><div class="meta-value">Summer shoots build visual library · Winter shoot produces homepage film · Full paid activation Sep–Nov booking peak</div></div>
+      <div class="campaign-meta-item"><div class="meta-label">Success Looks Like</div><div class="meta-value">2–3 tier-1 editorial placements · Homepage engagement lift · Inquiries from priority markets</div></div>
+    </div>
+  </div>
+  <div class="campaign-card blue">
+    <div class="campaign-num">Campaign 03 · Bucket-List Positioning</div>
+    <div class="campaign-title">Closer Than You Think</div>
+    <div class="campaign-idea">The aurora bucket-list experience most travellers think requires Iceland, Norway, or Lapland is actually in the Yukon — intimate, less crowded, and significantly more value for North American, Mexican, and Australian travellers.</div>
+    <p style="font-size:13.5px;color:var(--text-mid);line-height:1.65;margin-bottom:0;"><strong>Key mechanic:</strong> A Yukon vs Iceland direct-comparison landing page — visual, tabular, honest — including total cost in home currency including flights. A Spanish-language version of the landing page with peso-denominated total-trip pricing, and Spanish translation of the Aurora Planning Guide and inquiry path. One hosted Australian creator trip in Q3 and one hosted Mexican creator or journalist trip in Q3–Q4, each producing 30+ reusable assets. Mexican press wave to CN Traveler Mexico, Travesías, and Vogue Living Mexico with Spanish-language pitch assets. Google Search bidding on Scandinavia-intercept queries in both English and Spanish ('aurora boreal Canadá vs Islandia,' etc.).</p>
+    <div class="campaign-meta">
+      <div class="campaign-meta-item"><div class="meta-label">Primary Audience</div><div class="meta-value">Bucket-list travellers · Mexican market · Australian market · Korea/Singapore tests</div></div>
+      <div class="campaign-meta-item"><div class="meta-label">Timing</div><div class="meta-value">Production Q2 · Creator trip Q3 · Paid activation Sep–Nov</div></div>
+      <div class="campaign-meta-item"><div class="meta-label">Success Looks Like</div><div class="meta-value">Australian share 3–5% → 7–10% · Mexican share 4–5% → 6–8% · 25+ trade-attributed bookings (AUS + MEX) · 3+ AUS tier-1 press placements · 2+ Mexican tier-1 press placements</div></div>
+    </div>
+  </div>
+  <div class="campaign-card green">
+    <div class="campaign-num">Campaign 04 · Earned Amplification</div>
+    <div class="campaign-title">Earned Media Amplification</div>
+    <div class="campaign-idea">Every major marketing asset NLR produces in 2026 is engineered to generate earned coverage, and every piece of coverage is engineered to feed back into the other three campaigns. A standing machine, not a campaign with a start and end date.</div>
+    <p style="font-size:13.5px;color:var(--text-mid);line-height:1.65;margin-bottom:0;">Two tier-1 press waves per year (spring and fall). Four hosted creator trips, each producing 30–50 reusable assets. A fifth creator trip — a Mexican luxury creator or travel journalist, Q3 or Q4 2026 — is added to the four-trip plan; alternatively, reallocate the U.S. creator slot, which is the lowest-leverage given existing U.S. coverage. Press outreach extends beyond the tier-1 English-language set to Mexican luxury titles (CN Traveler Mexico, Travesías, Vogue Living Mexico, Expansión Vida, and Aeroméxico's in-flight magazine on the consumer side; Virtuoso Mexico and Mexican luxury travel advisor networks on trade), where the resort has zero placements to date. 100% TripAdvisor and Google review response coverage. Awards submissions calendar (6–8 per year). Active pursuit of Relais & Chateaux and Virtuoso designations.</p>
+    <div class="campaign-meta">
+      <div class="campaign-meta-item"><div class="meta-label">Timeline</div><div class="meta-value">Continuous: two press waves, four creator trips</div></div>
+      <div class="campaign-meta-item"><div class="meta-label">Institutional Targets</div><div class="meta-value">Relais & Chateaux · Virtuoso preferred partner</div></div>
+      <div class="campaign-meta-item"><div class="meta-label">Success Looks Like</div><div class="meta-value">6–10 tier-1/tier-2 placements · 4 creator trips · 2+ designations achieved or progressed</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 WEBSITE -->
+<section id="s-website" class="section">
+  <div class="section-header">
+    <div class="section-num">08</div>
+    <h1 class="section-title">Website Recommendations</h1>
+    <p class="section-subtitle">The website is doing the commercial work before it's done the emotional work. Every recommendation below addresses that sequencing problem.</p>
+  </div>
+  <div class="callout gold-border">
+    <div class="callout-label">Governing Principle</div>
+    <p>Sequence the emotional story before the commercial architecture, and make the path forward obvious at every point where a guest is ready to take it. Most recommendations below are content and copy changes, not development projects.</p>
+  </div>
+  <div class="page-rec">
+    <div class="rec-page">Homepage</div>
+    <div class="rec-title">Create an emotional state before creating options</div>
+    <ul class="rec-list">
+      <li><strong>Replace the hero copy.</strong> "Adventures in Alpine Luxury" is generic. Replace with copy that places the visitor inside the experience: <em>"The aurora overhead, ancient forest all around, and a quiet you forgot existed."</em></li>
+      <li><strong>Add a story moment before the commercial offer.</strong> Between the hero and the package grid, insert a short narrative section. Specific sensory details (stepping outside at midnight, watching the aurora fill the ceiling of a glass chalet) create the emotional state before anything is being sold.</li>
+      <li><strong>Move credentials above the fold.</strong> The stats bar (5,500+ guests, 1,300+ reviews, 260 dark nights) and editorial logo strip (NYT, WaPo, T&L, CN Traveller, National Geographic) currently sit near the bottom of the page. They belong after the story moment and before the CTAs.</li>
+      <li><strong>Reduce CTAs from 10 to 2.</strong> The administrative grid has 10 visible actions before the visitor has been given a reason to lean in. Reduce to "View Packages" and "Book Now."</li>
+      <li><strong>Reposition email capture.</strong> Move from footer. Reframe as "Planning a trip? Get our Aurora Viewing Guide," not a newsletter signup.</li>
+    </ul>
+  </div>
+  <div class="page-rec">
+    <div class="rec-page">Packages Page</div>
+    <div class="rec-title">Two changes that directly impact conversion</div>
+    <ul class="rec-list">
+      <li><strong>Add pricing.</strong> No "from" figure exists anywhere on the page. For a visitor considering a multi-thousand dollar trip, that's a conversion barrier. Every package card needs at minimum "from CA$X per person."</li>
+      <li><strong>Add a second CTA to each package card.</strong> "Inquire Now" assumes the visitor already knows which offering is right for them. Add "See What's Included" for first-time visitors who need more information before committing to an inquiry.</li>
+    </ul>
+  </div>
+  <div class="page-rec">
+    <div class="rec-page">Stay Page</div>
+    <div class="rec-title">Lead with the experience, not the building</div>
+    <ul class="rec-list">
+      <li><strong>Replace the hero image.</strong> A daytime lodge exterior is the least emotionally compelling image in the resort's library. Replace with aurora through a glass ceiling, a fire-lit chalet interior, or the view from bed at midnight.</li>
+      <li><strong>Move Aurora Glass Chalets to the top.</strong> It's the resort's signature product and highest-converting accommodation by email click-through. Currently listed third.</li>
+    </ul>
+  </div>
+  <div class="page-rec">
+    <div class="rec-page">Availability Flow</div>
+    <div class="rec-title">Remove friction from the highest-intent journey on the site</div>
+    <ul class="rec-list">
+      <li><strong>Availability landing page:</strong> Replace the orientation copy with a direct visual season-selector. A guest who clicks "Check Availability" knows what they want; the page's job is to get out of their way.</li>
+      <li><strong>Availability calendar:</strong> When a visitor finds a chalet and date that works, they should not have to re-enter that information on the following inquiry form. A seamless chalet/date selector reduces drop-off at the most critical conversion moment.</li>
+    </ul>
+  </div>
+  <h2>Analytics Infrastructure</h2>
+  <div class="table-wrap"><table><thead><tr><th>Instrumentation</th><th>Why it matters</th></tr></thead><tbody>
+    <tr><td><strong>GA4 Key Events</strong></td><td>Inquiry form start/complete, reservation form start/complete, guide download, package-detail view. Without these, paid media optimization is against incomplete data.</td></tr>
+    <tr><td><strong>UTM governance</strong></td><td>Centralized URL-builder for every campaign link, email, partner referral, and creator share. Required for assisted-conversion reporting.</td></tr>
+    <tr><td><strong>Meta Pixel + Conversions API</strong></td><td>Required for Meta Advantage+ campaigns in Campaigns 2 and 3 to function correctly.</td></tr>
+    <tr><td><strong>AI-referral source tracking</strong></td><td>ChatGPT, Gemini, Perplexity, Copilot as named source groups. Baseline already 1,217 sessions/year.</td></tr>
+  </tbody></table></div>
+</section>
+
+<!-- 09 KPIs -->
+<section id="s-kpis" class="section">
+  <div class="section-header">
+    <div class="section-num">09</div>
+    <h1 class="section-title">KPIs & Reporting Framework</h1>
+    <p class="section-subtitle">Measurement must reflect the reality that a guest books a $5,000–$10,000+ stay after a 6–18 month research and desire-building process.</p>
+  </div>
+  <h2>Three governing principles</h2>
+  <div class="cards-grid">
+    <div class="card"><div class="card-tag">Principle 01</div><div class="card-title">Measure the behaviour, not just the outcome</div><p>The booking is a lagging indicator of dozens of earlier behaviours. A framework that only tracks bookings will declare marketing ineffective for the first six months of a campaign that's working exactly as intended.</p></div>
+    <div class="card"><div class="card-tag">Principle 02</div><div class="card-title">Assisted conversion is the standard</div><p>No single channel takes credit for the reservation in a last-click model. A last-click model will systematically under-invest in the channels doing the real work.</p></div>
+    <div class="card"><div class="card-tag">Principle 03</div><div class="card-title">Match cadence to decision</div><p>Leading indicators reviewed weekly, adjusted in near real time. Lagging indicators reviewed quarterly. Reacting to booking volume weekly introduces noise and produces bad decisions.</p></div>
+  </div>
+  <h2>Channel-Level KPIs</h2>
+  <div class="table-wrap"><table><thead><tr><th>Channel</th><th>Primary KPI</th><th>Secondary KPI</th></tr></thead><tbody>
+    <tr><td><strong>Social (organic)</strong></td><td>Reach on trip-intent content</td><td>Save rate on Pillar 1 + 2 content</td></tr>
+    <tr><td><strong>Video platforms</strong></td><td>YouTube watch-time (Education Series)</td><td>Reel reach (owned + partner channels)</td></tr>
+    <tr><td><strong>Search</strong></td><td>Rankings on 12 priority commercial terms</td><td>New top-10 rankings on informational queries</td></tr>
+    <tr><td><strong>Advertising</strong></td><td>Cost per qualified inquiry (not per click)</td><td>Inquiry-to-booking rate by paid source</td></tr>
+    <tr><td><strong>Email</strong></td><td>Click-to-open rate (target 14%+)</td><td>Email-originated inquiry rate (UTM-tracked)</td></tr>
+    <tr><td><strong>Earned media</strong></td><td>Tier-1 placements per year (target: 6–10)</td><td>Referral sessions from earned sources</td></tr>
+    <tr><td><strong>Partnerships</strong></td><td>Institutional designations secured</td><td>Trade-channel referrals and bookings</td></tr>
+  </tbody></table></div>
+  <h2>Reporting Cadence</h2>
+  <div class="table-wrap"><table><thead><tr><th>Cadence</th><th>Audience</th><th>Format</th><th>Contents</th></tr></thead><tbody>
+    <tr><td><strong>Weekly</strong></td><td>Internal team</td><td>Live dashboard</td><td>Paid performance, social reach, email on active sends, Google Ads pacing</td></tr>
+    <tr><td><strong>Monthly</strong></td><td>Tobias, Lynn + team</td><td>Monthly Scorecard (1–2 pages)</td><td>Leading indicators vs target; each channel's top-line KPI; flagged issues requiring decision</td></tr>
+    <tr><td><strong>Quarterly</strong></td><td>Full leadership</td><td>Quarterly Readout (8–15 pages)</td><td>Full lagging indicators; campaign performance review; YoY trajectory; budget reallocation recommendations</td></tr>
+    <tr><td><strong>Annually</strong></td><td>Leadership + strategic partners</td><td>Annual Review</td><td>Full-year capacity, revenue, market diversification; 12-month strategic review; 2027 strategy recommendations</td></tr>
+  </tbody></table></div>
+</section>
+
+<!-- 10 PHASING -->
+<section id="s-phasing" class="section">
+  <div class="section-header">
+    <div class="section-num">10</div>
+    <h1 class="section-title">Phasing & Timeline</h1>
+    <p class="section-subtitle">Built from the current moment (late April 2026), with the peak booking window approximately four months away. Prioritizes the actions with the highest return before September.</p>
+  </div>
+  <div class="phase-block">
+    <div class="phase-header"><div class="phase-label"><div class="phase-dot"></div><div class="phase-name">Phase 1: Foundation</div></div><div class="phase-dates">May – June 2026</div></div>
+    <div class="phase-focus">Build the infrastructure every downstream campaign depends on. No amount of well-crafted creative performs reliably without proper conversion tracking, a functioning email cadence, and a website that does the emotional work before the commercial ask.</div>
+    <div class="table-wrap"><table><tbody>
+      <tr><td><strong>GA4 instrumentation</strong></td><td>Configure Key Events for inquiry form start/complete, reservation start/complete, guide downloads. Establish UTM governance. Configure Meta Pixel and Conversions API.</td><td style="min-width:180px;color:var(--text-dim);font-size:12px;">Prerequisite for all paid media optimization and KPI reporting.</td></tr>
+      <tr><td><strong>Email cadence established</strong></td><td>First send: narrative re-engagement to full list. Begin segmenting by booking status. Build Aurora Planning Guide PDF as lead magnet.</td><td style="color:var(--text-dim);font-size:12px;">The 61% open rate is a compounding asset. Every month of inactivity is lost value.</td></tr>
+      <tr><td><strong>Website quick wins</strong></td><td>Reposition logo. Replace hero copy. Move credentials above fold. Reduce CTAs to 2. Add "from CA$X" pricing to all package cards.</td><td style="color:var(--text-dim);font-size:12px;">Immediately improves conversion for the paid traffic already running.</td></tr>
+      <tr><td><strong>Monthly content shoot programme initiated</strong></td><td>Brief and book a photographer/videographer for monthly shoots beginning in June. Summer shoots (June–October) focus on the resort experience: rooms, spa, and dining. Establish a consistent shot list, talent briefing, and asset delivery process so the programme runs without reinventing the wheel each month.</td><td style="color:var(--text-dim);font-size:12px;">Resolves the interior/dining visual gap immediately and builds an owned library that feeds social, email, paid, and the website redesign month by month.</td></tr>
+      <tr><td><strong>Spring press wave</strong></td><td>Send to tier-1, Australian, and Mexican target media using existing assets. Include CN Traveler Mexico, Travesías, and Vogue Living Mexico with Spanish-language pitch assets. New photography is not required to begin outreach; summer shoot assets will strengthen subsequent pitches from June onward.</td><td style="color:var(--text-dim);font-size:12px;">Press placements run on 2–4 month editorial lead times. Spanish-language pitch materials are a Phase 1 task and should not delay the English-language send.</td></tr>
+      <tr><td><strong>Spanish-language site layer scoped</strong></td><td>Quote and commission Spanish translation of the homepage, packages page, availability flow, inquiry forms, and Aurora Planning Guide. Confirm operational handling of Mexican eTA inquiries on the booking-side process so the inquiry team can answer documentation questions confidently.</td><td style="color:var(--text-dim);font-size:12px;">Translation is a contained workstream that should be commissioned in Phase 1 to align with the homepage redesign timeline. Mexican bookings have grown slightly post the February 2024 eTA policy change, so existing guests are clearly navigating documentation — this is a confirm-and-document task, not a blocker.</td></tr>
+      <tr><td><strong>Institutional applications</strong></td><td>Open Relais & Chateaux consideration process. Begin Virtuoso preferred-partner inquiry.</td><td style="color:var(--text-dim);font-size:12px;">Relais &amp; Chateaux takes 3–6 months. Starting in May is the prerequisite for a 2026 result.</td></tr>
+    </tbody></table></div>
+  </div>
+  <div class="phase-block">
+    <div class="phase-header"><div class="phase-label"><div class="phase-dot gold"></div><div class="phase-name">Phase 2: Content Production & Campaign Launch</div></div><div class="phase-dates">July – August 2026</div></div>
+    <div class="phase-focus">Monthly summer content shoots are active, building the visual library across rooms, spa, and dining. Phase 2 is where that library starts flowing into campaigns: paid creative refreshed, homepage redesign live with summer assets, and planning locked for the dedicated winter shoot when first snow falls.</div>
+    <div class="table-wrap"><table><tbody>
+      <tr><td><strong>Summer content shoots ongoing</strong></td><td>Monthly shoots through July and August continue building the resort experience library. Each session delivers a batch of social-ready assets within one week. Prioritise the visual gaps identified in the research: chalet interiors, dining in context, spa detail, team portraiture.</td></tr>
+      <tr><td><strong>Winter shoot planned and briefed</strong></td><td>Scope and brief the dedicated winter shoot ahead of first snowfall. Deliverables: a 3–5 minute homepage film capturing the full winter guest experience (the aurora, the chalet, the dining, the quiet), plus a batch of winter-specific stills and short-form clips. Brief the videographer now so the shoot is ready to execute the moment conditions are right.</td></tr>
+      <tr><td><strong>Education Series launched</strong></td><td>Episodes 1–3 on YouTube with companion articles. Aurora Planning Guide live as gated lead magnet.</td></tr>
+      <tr><td><strong>Homepage redesign live</strong></td><td>With summer shoot assets arriving monthly, execute the fuller homepage redesign: best available interior/dining imagery as hero, narrative copy before commercial offer, credentials elevated, email capture repositioned. The winter film replaces the hero asset once produced.</td></tr>
+      <tr><td><strong>Australian creator trip executed</strong></td><td>100K–500K engaged Australian luxury travel audience. Long-form YouTube vlog as primary deliverable plus 30+ reusable assets.</td></tr>
+      <tr><td><strong>Paid media creative refreshed</strong></td><td>Update Meta and Google creative with assets from the summer shoots. Launch Meta Advantage+ for U.S. Northeast, Canadian Ontario/BC, Australian NSW/VIC, and Mexican CDMX/Monterrey, 45–65. Mexican-market creative runs in Spanish from launch. Refresh creative monthly as new assets arrive. Do not scale budgets until GA4 Key Events confirmed live.</td></tr>
+      <tr><td><strong>Spanish-language site assets live</strong></td><td>Spanish translation of the homepage, packages page, availability flow, inquiry forms, and Aurora Planning Guide deployed alongside the homepage redesign. Inquiry path tested end-to-end in Spanish. Removes the conversion-layer gap for the audience already finding the site organically; turns latent demand into bookable demand.</td></tr>
+    </tbody></table></div>
+  </div>
+  <div class="phase-block">
+    <div class="phase-header"><div class="phase-label"><div class="phase-dot blue"></div><div class="phase-name">Phase 3: Peak Booking Window</div></div><div class="phase-dates">September – November 2026</div></div>
+    <div class="phase-focus">All four campaigns running simultaneously. Email is the highest-leverage channel; the list's open rates mean a well-timed October send reaches a more engaged audience than most properties' paid campaigns.</div>
+    <div class="table-wrap"><table><tbody>
+      <tr><td><strong>All four campaigns active</strong></td><td>Campaign 1 (Education Series, Episodes 6–10); Campaign 2 (full paid activation); Campaign 3 (Closer Than You Think, Australian and Mexican paid activation, English and Spanish Scandinavia-intercept search); Campaign 4 (continuous press follow-up and creator content live).</td></tr>
+      <tr><td><strong>Email at peak frequency</strong></td><td>3–4 sends across Sep–Nov: aurora-season launch (narrative-led), guest-story-led, urgency email on peak-date availability. Segmented versions for past guests vs prospects.</td></tr>
+      <tr><td><strong>Korea and Singapore paid test</strong></td><td>A modest Meta geo-test with translated creative. Budget limited to learning; the goal is data that informs 2027 planning.</td></tr>
+      <tr><td><strong>100% review coverage</strong></td><td>TripAdvisor and Google response coverage maintained throughout the season. Assign explicit ownership; this cannot be deprioritized when the team is busy.</td></tr>
+    </tbody></table></div>
+  </div>
+  <div class="phase-block">
+    <div class="phase-header"><div class="phase-label"><div class="phase-dot green"></div><div class="phase-name">Phase 4: Sustain, Measure & Plan</div></div><div class="phase-dates">December 2026 – February 2027</div></div>
+    <div class="phase-focus">Close the year's campaign activity, review what the full-year data says, and set the 2027 direction while it's still fresh. December is not a downtime month.</div>
+    <div class="table-wrap"><table><tbody>
+      <tr><td><strong>Education Series completed</strong></td><td>Episodes 11–12 published. Full series reviewed for watch-time performance; top topics inform the 2027 content calendar.</td></tr>
+      <tr><td><strong>Annual KPI review</strong></td><td>Market share by country; inquiry-to-booking rate by source; capacity achieved; earned media placements; institutional designations progressed.</td></tr>
+      <tr><td><strong>2027 market decision</strong></td><td>Based on Korea/Singapore test results and Australian booking trajectory. This decision requires Q3–Q4 data and should not be made before it exists.</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<!-- 11 RISKS -->
+<section id="s-risks" class="section">
+  <div class="section-header">
+    <div class="section-num">11</div>
+    <h1 class="section-title">Risks</h1>
+    <p class="section-subtitle">Not reasons to soften the recommendations, but the specific failure modes this strategy is most exposed to, with concrete mitigations for each.</p>
+  </div>
+  <div class="risk-item">
+    <div class="risk-header"><div class="risk-icon">!</div><div class="risk-title">The monthly content programme requires consistent execution to deliver its value</div></div>
+    <div class="risk-body"><p>Monthly shoots only build the visual library the strategy depends on if they happen every month. A gap in June or July means a gap in paid creative, social content, and email assets during the period when paid media is scaling toward the September–November booking peak. Inconsistent quality across sessions produces an uneven library that is harder to use at scale.</p>
+    <div class="risk-mitigation"><div class="mit-label">Mitigation</div><p>Book the photographer/videographer on a recurring monthly retainer rather than session-by-session. Establish a standing shot list that is updated each month rather than briefed from scratch. The winter shoot requires a separate brief and should be scoped in advance so it is ready to execute the moment first snow falls; weather-dependent timing means preparation cannot be left late.</p></div></div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-header"><div class="risk-icon">!</div><div class="risk-title">The U.S. market may soften further before it recovers</div></div>
+    <div class="risk-body"><p>The strategy's financial base is still ~60% U.S.-origin bookings. If cross-border travel sentiment deteriorates further (policy shifts, currency movements, broader economic conditions), Canadian and Australian growth may not fully offset the revenue gap in time for the 2026–27 season.</p>
+    <div class="risk-mitigation"><div class="mit-label">Mitigation</div><p>The diversification strategy in Section 3 is not optional hedging — it is active risk management. Mexico and Australia together represent close to 10% of current bookings, both established or emerging without deliberate marketing investment behind them. Formalising both in parallel — rather than treating Australia as the sole near-term diversification play — increases the absolute volume of non-U.S. revenue and reduces concentration risk faster than a single-market activation would. Accelerating the Australian creator trip, the Mexican press outreach, and the Destination Canada Mexican-market partnership conversation to Phase 1 reduces exposure if U.S. demand continues to soften through summer.</p></div></div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-header"><div class="risk-icon">!</div><div class="risk-title">The analytics gap means current paid media spend is partially blind</div></div>
+    <div class="risk-body"><p>Google Ads spending CA$3,300–3,700/month and Meta spending $417–1,200/month. Neither channel's conversion data is reliable because GA4 Key Events are not configured. Optimization decisions are being made against incomplete information.</p>
+    <div class="risk-mitigation"><div class="mit-label">Mitigation</div><p>GA4 instrumentation is a Phase 1 non-negotiable. It is inexpensive to configure. Paid media budgets should not increase until conversion tracking is confirmed functioning correctly.</p></div></div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-header"><div class="risk-icon">!</div><div class="risk-title">The email list requires consistent stewardship to remain an asset</div></div>
+    <div class="risk-body"><p>A 57–64% open rate on 6,350 subscribers is exceptional, and it is the product of a relationship with an audience that chose to hear from the resort. Inconsistent cadence will erode the open rate and the list's value with it.</p>
+    <div class="risk-mitigation"><div class="mit-label">Mitigation</div><p>Assign explicit ownership of the email calendar. Minimum one send per month through aurora season, one per quarter in shoulder season. A warm guest story with no commercial ask maintains the relationship better than a promotional send with a discount.</p></div></div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-header"><div class="risk-icon">!</div><div class="risk-title">The Spanish-language activation layer is a one-time fixed cost that needs to land cleanly</div></div>
+    <div class="risk-body"><p>A partially translated site, an inquiry form that reverts to English mid-flow, or email automation that lacks a Spanish path will produce a worse experience than the current English-only setup for the Mexican guests who are already booking despite it.</p>
+    <div class="risk-mitigation"><div class="mit-label">Mitigation</div><p>Scope the translation as a complete workstream rather than a phased rollout. Translate the highest-traffic paths first (homepage, packages, availability, inquiry, Planning Guide) and confirm end-to-end before launch. Route Spanish-language inquiries through a designated team member with conversational Spanish until volume justifies a dedicated resource.</p></div></div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-header"><div class="risk-icon">!</div><div class="risk-title">Institutional designations take longer than expected, particularly in the first attempt</div></div>
+    <div class="risk-body"><p>Relais & Chateaux and Virtuoso are multi-month processes with application requirements, site assessments, and committee reviews. A first-attempt Relais & Chateaux application may not succeed in 2026.</p>
+    <div class="risk-mitigation"><div class="mit-label">Mitigation</div><p>Treat Phase 1 as the submission window, not the outcome window. A Relais & Chateaux application submitted in May 2026 may produce a 2027 designation, still valuable and worth pursuing. The Virtuoso preferred-partner inquiry is most immediately actionable and should be prioritized first.</p></div></div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-header"><div class="risk-icon">!</div><div class="risk-title">The Japan market requires an operational decision before a marketing one</div></div>
+    <div class="risk-body"><p>Japanese referral interest is real (yukonjapan.jp, tripadvisor.jp). But Japan's cancellation and booking protection laws create operational complexity for a fixed 16-guest capacity at premium pricing. Marketing to a Japanese audience before the booking policy is adapted risks inquiry volume the resort cannot convert cleanly.</p>
+    <div class="risk-mitigation"><div class="mit-label">Mitigation</div><p>Confirm (with Destination Canada's Japan market team or a Japan-specialist inbound operator) what policy adjustments would be required. If feasible in 2026, a modest Q4 test becomes viable. If not, Japan is a 2027 priority with a clear pre-condition.</p></div></div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-header"><div class="risk-icon">!</div><div class="risk-title">The strategy's ambition may exceed current internal capacity</div></div>
+    <div class="risk-body"><p>The 2026 plan includes a 12-episode YouTube series, four creator trips, two press waves, a monthly content shoot programme, a winter shoot, a homepage redesign, applications to three institutional bodies, and a new email cadence, all alongside running a luxury resort. This is close to a boutique agency's annual workload.</p>
+    <div class="risk-mitigation"><div class="mit-label">Mitigation</div><p>The phasing sequences the work deliberately so the highest-stakes initiatives are not competing simultaneously. External support (a PR firm for press waves, a content production partner for the Education Series, a digital marketing contractor for paid media) is not a luxury in this plan. It is a structural necessity.</p></div></div>
+  </div>
+</section>
+
+<!-- 12 NEXT STEPS -->
+<section id="s-nextsteps" class="section">
+  <div class="section-header">
+    <div class="section-num">12</div>
+    <h1 class="section-title">Next Steps</h1>
+    <p class="section-subtitle">Sequenced by urgency and dependency. The first three have a direct bearing on the booking season already in progress; deferring them past May meaningfully reduces the strategy's 2026 impact.</p>
+  </div>
+  <div class="next-steps-group">
+    <div class="next-steps-label">In the next two weeks (by mid-May 2026)</div>
+    <div class="step-item"><div class="step-dot"></div><div class="step-text"><strong>Set up the monthly content shoot programme.</strong> Book a photographer/videographer on a recurring monthly retainer starting in June. Agree the standing summer brief (rooms, spa, dining), the asset delivery format, and the process for briefing seasonal variants. Also scope the dedicated winter shoot now so the brief and talent are confirmed before first snowfall; that timing is weather-dependent and cannot be left late.</div></div>
+    <div class="step-item"><div class="step-dot"></div><div class="step-text"><strong>Initiate the GA4 Key Events instrumentation.</strong> Assign this to a developer or analytics contractor with a two-week completion target. Paid media optimization and KPI reporting depend on it from this point forward.</div></div>
+    <div class="step-item"><div class="step-dot"></div><div class="step-text"><strong>Send the spring press wave.</strong> Use existing assets — TripAdvisor credentials, editorial coverage, aurora season angle — to reach tier-1, Australian, and Mexican target media. Spanish-language pitch materials for the Mexican titles are a Phase 1 task and should not delay the English-language send. New photography is not required to begin outreach; the first summer shoot assets will strengthen subsequent pitches from June onward.</div></div>
+  </div>
+  <div class="next-steps-group">
+    <div class="next-steps-label">In May and June 2026</div>
+    <div class="step-item"><div class="step-dot"></div><div class="step-text"><strong>Establish the email cadence.</strong> Draft and schedule the first narrative re-engagement send to the full list. Produce the Aurora Planning Guide PDF as the lead-magnet. Assign explicit ownership of the monthly send calendar.</div></div>
+    <div class="step-item"><div class="step-dot"></div><div class="step-text"><strong>Execute the homepage quick wins from Section 8.</strong> Logo repositioned, hero copy replaced, credentials moved above the fold, package pricing added. None require a developer; all of them improve conversion for the paid traffic currently running.</div></div>
+    <div class="step-item"><div class="step-dot"></div><div class="step-text"><strong>Confirm the Australian creator partner and trip dates.</strong> The Q3 Australian creator trip is Campaign 3's most important single activation. The creator needs to be booked, briefed, and confirmed in May so logistics are locked before summer.</div></div>
+    <div class="step-item"><div class="step-dot"></div><div class="step-text"><strong>Open the Virtuoso and Relais & Chateaux inquiries.</strong> Both processes begin with an initial inquiry or pre-qualification review. The conversations should be active by June.</div></div>
+    <div class="step-item"><div class="step-dot"></div><div class="step-text"><strong>Scope and commission the Spanish-language site layer.</strong> Quote translation for the homepage, packages page, availability flow, inquiry forms, and Aurora Planning Guide. Open the Destination Canada Mexican-market relationship conversation. Confirm operational handling of Mexican eTA inquiries with the booking team.</div></div>
+  </div>
+  <div class="next-steps-group">
+    <div class="next-steps-label">Ongoing through the year</div>
+    <div class="step-item"><div class="step-dot"></div><div class="step-text"><strong>Review paid media performance monthly</strong> once GA4 Key Events are confirmed live. The first full month of reliable conversion data should prompt a Google/Meta budget reallocation review.</div></div>
+    <div class="step-item"><div class="step-dot"></div><div class="step-text"><strong>Hold a quarterly strategy check-in</strong> (90 minutes with the Junction team) to review leading indicators against targets, flag risks that have materialized, and adjust Phase 3 priorities before the booking peak.</div></div>
+    <div class="step-item"><div class="step-dot"></div><div class="step-text"><strong>Plan the Implementation Support engagement</strong> (per the project brief, August–September 2026) to coincide with the Phase 2 to Phase 3 transition, specifically to review the shoot assets, confirm the paid media creative, and prepare the peak booking window activation plan before it launches.</div></div>
+  </div>
+  <div class="divider"></div>
+  <div class="pull-quote">
+    <p>Northern Lights Resort & Spa has more story to tell than any property in its category. 2026 is the year the marketing catches up.</p>
+    <cite>Junction Consulting · April 2026</cite>
+  </div>
+</section>
+
+</main>
+</body>
+</html>

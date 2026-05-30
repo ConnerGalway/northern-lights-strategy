@@ -56,7 +56,8 @@ body:has(#s-website:target) #s-hero,
 body:has(#s-kpis:target) #s-hero,
 body:has(#s-phasing:target) #s-hero,
 body:has(#s-risks:target) #s-hero,
-body:has(#s-nextsteps:target) #s-hero { display: none; }
+body:has(#s-nextsteps:target) #s-hero,
+body:has(#s-actionplan:target) #s-hero { display: none; }
 
 /* ── NAV ACTIVE STATES ── */
 body:not(:has(.section:target)) [data-sec="s-hero"],
@@ -72,7 +73,8 @@ body:has(#s-website:target) [data-sec="s-website"],
 body:has(#s-kpis:target) [data-sec="s-kpis"],
 body:has(#s-phasing:target) [data-sec="s-phasing"],
 body:has(#s-risks:target) [data-sec="s-risks"],
-body:has(#s-nextsteps:target) [data-sec="s-nextsteps"] {
+body:has(#s-nextsteps:target) [data-sec="s-nextsteps"],
+body:has(#s-actionplan:target) [data-sec="s-actionplan"] {
   background: rgba(62,207,178,0.06); border-left-color: var(--aurora);
 }
 body:not(:has(.section:target)) [data-sec="s-hero"] .nav-num,
@@ -88,7 +90,8 @@ body:has(#s-website:target) [data-sec="s-website"] .nav-num,
 body:has(#s-kpis:target) [data-sec="s-kpis"] .nav-num,
 body:has(#s-phasing:target) [data-sec="s-phasing"] .nav-num,
 body:has(#s-risks:target) [data-sec="s-risks"] .nav-num,
-body:has(#s-nextsteps:target) [data-sec="s-nextsteps"] .nav-num { color: var(--aurora); }
+body:has(#s-nextsteps:target) [data-sec="s-nextsteps"] .nav-num,
+body:has(#s-actionplan:target) [data-sec="s-actionplan"] .nav-num { color: var(--aurora); }
 body:not(:has(.section:target)) [data-sec="s-hero"] .nav-label,
 body:has(#s-hero:target) [data-sec="s-hero"] .nav-label,
 body:has(#s-exec:target) [data-sec="s-exec"] .nav-label,
@@ -97,11 +100,13 @@ body:has(#s-audiences:target) [data-sec="s-audiences"] .nav-label,
 body:has(#s-positioning:target) [data-sec="s-positioning"] .nav-label,
 body:has(#s-channels:target) [data-sec="s-channels"] .nav-label,
 body:has(#s-content:target) [data-sec="s-content"] .nav-label,
+body:has(#s-campaigns:target) [data-sec="s-campaigns"] .nav-label,
 body:has(#s-website:target) [data-sec="s-website"] .nav-label,
 body:has(#s-kpis:target) [data-sec="s-kpis"] .nav-label,
 body:has(#s-phasing:target) [data-sec="s-phasing"] .nav-label,
 body:has(#s-risks:target) [data-sec="s-risks"] .nav-label,
-body:has(#s-nextsteps:target) [data-sec="s-nextsteps"] .nav-label { color: var(--text); }
+body:has(#s-nextsteps:target) [data-sec="s-nextsteps"] .nav-label,
+body:has(#s-actionplan:target) [data-sec="s-actionplan"] .nav-label { color: var(--text); }
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
@@ -395,6 +400,26 @@ td strong { color: var(--text); font-weight: 500; }
 .intro-box { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 28px 32px; margin: 32px 0; }
 .intro-box p { font-size: 15px; color: var(--text-mid); line-height: 1.8; margin: 0; }
 .intro-box p + p { margin-top: 14px; }
+
+/* ── ACTION PLAN ── */
+.action-group { margin-bottom: 48px; }
+.action-group-heading { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(201,168,76,0.2); }
+.action-step-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 20px 22px 18px; margin-bottom: 10px; display: flex; gap: 16px; }
+.action-num { width: 28px; height: 28px; border-radius: 50%; background: rgba(62,207,178,0.1); border: 1px solid rgba(62,207,178,0.2); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: var(--aurora); flex-shrink: 0; margin-top: 1px; }
+.action-content { flex: 1; min-width: 0; }
+.action-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 7px; line-height: 1.45; }
+.action-desc { font-size: 13px; color: var(--text-dim); line-height: 1.65; margin-bottom: 12px; }
+.action-footer { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.action-timing { font-size: 11px; color: var(--text-dim); background: var(--bg3); border: 1px solid var(--border); padding: 3px 10px; border-radius: 2px; letter-spacing: 0.04em; }
+.action-role { display: flex; align-items: center; gap: 6px; }
+.action-role-tag { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; padding: 3px 8px; border-radius: 2px; }
+.action-role-tag.managing { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+.action-role-tag.executing { background: rgba(62,207,178,0.1); color: var(--aurora); border: 1px solid rgba(62,207,178,0.2); }
+.action-role-name { font-size: 12px; font-weight: 500; color: var(--text); }
+@media (max-width: 768px) {
+  .action-step-card { padding: 16px 14px 14px; gap: 12px; }
+  .action-num { width: 24px; height: 24px; font-size: 10px; }
+}
 </style>
 </head>
 <body>
@@ -431,6 +456,7 @@ td strong { color: var(--text); font-weight: 500; }
   <div class="nav-item" data-sec="s-phasing"><a href="#s-phasing"><span class="nav-num">10</span><span class="nav-label">Phasing & Timeline</span></a></div>
   <div class="nav-item" data-sec="s-risks"><a href="#s-risks"><span class="nav-num">11</span><span class="nav-label">Risks</span></a></div>
   <div class="nav-item" data-sec="s-nextsteps"><a href="#s-nextsteps"><span class="nav-num">12</span><span class="nav-label">Next Steps</span></a></div>
+  <div class="nav-item" data-sec="s-actionplan"><a href="#s-actionplan"><span class="nav-num">13</span><span class="nav-label">Action Plan</span></a></div>
   <div class="sidebar-footer">Junction Consulting · April 2026</div>
 </nav>
 
@@ -454,7 +480,7 @@ td strong { color: var(--text); font-weight: 500; }
     <div class="hero-cta">
       <a href="#s-exec" class="btn-primary">Read Strategy</a>
       <a href="#s-campaigns" class="btn-secondary">View Campaigns</a>
-      <a href="#s-nextsteps" class="btn-secondary">Next Steps</a>
+      <a href="#s-actionplan" class="btn-secondary">Action Plan</a>
     </div>
     <div class="hero-stats">
       <div class="hero-stat"><div class="stat-num">5.0</div><div class="stat-label">TripAdvisor · 1,300+ reviews</div></div>
@@ -993,6 +1019,309 @@ td strong { color: var(--text); font-weight: 500; }
     <p>Northern Lights Resort & Spa has more story to tell than any property in its category. 2026 is the year the marketing catches up.</p>
     <cite>Junction Consulting · April 2026</cite>
   </div>
+</section>
+
+
+<!-- 13 ACTION PLAN -->
+<section id="s-actionplan" class="section">
+  <div class="section-header">
+    <div class="section-num">13</div>
+    <h1 class="section-title">Action Plan</h1>
+    <p class="section-subtitle">Step-by-step ownership for every first move. Each task names who coordinates it and who executes it — so nothing falls between the chairs.</p>
+  </div>
+
+  <div class="callout aurora-border">
+    <div class="callout-label">How to read this plan</div>
+    <p><strong style="color:var(--gold)">Managing</strong> = the person responsible for coordinating the task, chasing progress, and making decisions. <strong style="color:var(--aurora)">Executing</strong> = the person or team doing the hands-on work. Both roles must be named before any task starts.</p>
+  </div>
+
+  <!-- GROUP 1 -->
+  <div class="action-group">
+    <div class="action-group-heading">01 &mdash; GA4 &amp; Analytics Setup &nbsp;·&nbsp; Prerequisite for all paid media — begin immediately</div>
+
+    <div class="action-step-card">
+      <div class="action-num">1</div>
+      <div class="action-content">
+        <div class="action-title">Audit the current GA4 configuration and document every gap</div>
+        <p class="action-desc">Review whether inquiry form starts/completions, reservation starts/completions, Aurora Planning Guide downloads, and package-detail views are recorded as Key Events. Produce a one-page gap list before any implementation work begins.</p>
+        <div class="action-footer">
+          <span class="action-timing">Week 1 &mdash; May 2026</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Junction</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Blacksmith SEO</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-step-card">
+      <div class="action-num">2</div>
+      <div class="action-content">
+        <div class="action-title">Configure GA4 Key Events for all critical conversion points</div>
+        <p class="action-desc">Instrument inquiry form start and complete, reservation form start and complete, guide download, and package-detail page view. These events are the foundation of all paid-media optimisation and KPI reporting — without them, every budget decision is made against incomplete data.</p>
+        <div class="action-footer">
+          <span class="action-timing">Weeks 1–2 &mdash; May 2026</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Junction</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Blacksmith SEO</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-step-card">
+      <div class="action-num">3</div>
+      <div class="action-content">
+        <div class="action-title">Establish UTM governance — a centralised URL builder for every outbound link</div>
+        <p class="action-desc">Create a shared UTM naming convention and URL-building spreadsheet. Every campaign email, paid ad, partner referral, and creator post must use consistent UTMs from this point forward. Without governance, assisted-conversion reporting produces noise rather than signal.</p>
+        <div class="action-footer">
+          <span class="action-timing">Week 2 &mdash; May 2026</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Junction</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Junction</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-step-card">
+      <div class="action-num">4</div>
+      <div class="action-content">
+        <div class="action-title">Configure Meta Pixel and Conversions API</div>
+        <p class="action-desc">Required before Meta Advantage+ campaigns (Campaigns 2 and 3) can optimise correctly. Server-side Conversions API is essential — without it, iOS privacy restrictions mean up to 40% of Meta conversions go unattributed and campaign learning suffers.</p>
+        <div class="action-footer">
+          <span class="action-timing">Week 2 &mdash; May 2026</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Junction</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Blacksmith SEO</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-step-card">
+      <div class="action-num">5</div>
+      <div class="action-content">
+        <div class="action-title">Test and verify all tracking end-to-end before scaling paid budgets</div>
+        <p class="action-desc">Complete a full walkthrough: submit a test inquiry, check GA4 real-time, confirm Meta Event Manager records the conversion, verify UTMs pass through correctly to source reports. Tobi signs off. Paid media budgets do not increase until this step is complete.</p>
+        <div class="action-footer">
+          <span class="action-timing">End of May 2026</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Tobi</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Junction + Blacksmith SEO</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GROUP 2 -->
+  <div class="action-group">
+    <div class="action-group-heading">02 &mdash; Newsletter Review &amp; Email Cadence &nbsp;·&nbsp; 6,350 subscribers at 61% open rate — the most underused asset in the mix</div>
+
+    <div class="action-step-card">
+      <div class="action-num">1</div>
+      <div class="action-content">
+        <div class="action-title">Review current list health: deliverability, bounce rate, and open rate by campaign</div>
+        <p class="action-desc">Pull a full health report — deliverability rate, hard and soft bounces, unsubscribe rate per campaign, and open rate by list age. Identify whether any domain-level deliverability issues are suppressing opens or whether 61% is the true floor. Flag any lists requiring a re-permission send before the peak cadence begins.</p>
+        <div class="action-footer">
+          <span class="action-timing">May 2026</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Tobi</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Junction</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-step-card">
+      <div class="action-num">2</div>
+      <div class="action-content">
+        <div class="action-title">Segment the list into four groups based on booking history and engagement</div>
+        <p class="action-desc">Warm leads (inquired, not booked), engaged non-converters (opened 2+ emails, clicked, no inquiry), referral network (completed a stay), and general subscribers. Each group receives a distinct content tone and call-to-action strategy — sending the same message to all four is why cadence-heavy lists see declining open rates.</p>
+        <div class="action-footer">
+          <span class="action-timing">May 2026</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Junction</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Junction</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-step-card">
+      <div class="action-num">3</div>
+      <div class="action-content">
+        <div class="action-title">Produce the Aurora Planning Guide PDF as the lead magnet for new subscribers</div>
+        <p class="action-desc">A comprehensive, visually compelling guide covering aurora viewing seasons, what to expect at Northern Lights Resort, how to photograph the lights, and the Yukon vs Iceland comparison. Gated behind an email capture on the website. This asset also repositions the signup from "newsletter" to "get the guide" — a framing that consistently doubles capture rates.</p>
+        <div class="action-footer">
+          <span class="action-timing">May–June 2026</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Junction</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Junction</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-step-card">
+      <div class="action-num">4</div>
+      <div class="action-content">
+        <div class="action-title">Draft and send the first narrative re-engagement email to the full list</div>
+        <p class="action-desc">A guest-story-led email with no hard sell — its job is to re-establish the resort as a brand worth hearing from after a gap in cadence. Segmented versions for past guests vs. prospects. Tobi reviews and approves tone before send. Target: June 2026.</p>
+        <div class="action-footer">
+          <span class="action-timing">June 2026</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Tobi</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Junction</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-step-card">
+      <div class="action-num">5</div>
+      <div class="action-content">
+        <div class="action-title">Lock the send calendar for the next 12 months with a named owner for every send</div>
+        <p class="action-desc">2×/month during peak booking season (Aug–Nov) and aurora season (Dec–Mar); 1×/month in shoulder periods (Apr–Jun); 2×/month in July for next-season ramp. The 61% open rate is a compounding asset — it erodes without consistent cadence. Assign a named owner at both the resort and Junction for every send date on the calendar.</p>
+        <div class="action-footer">
+          <span class="action-timing">June 2026 — ongoing</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Tobi</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Junction</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GROUP 3 -->
+  <div class="action-group">
+    <div class="action-group-heading">03 &mdash; Homepage Quick Wins &nbsp;·&nbsp; No developer required — improves conversion for the paid traffic already running today</div>
+
+    <div class="action-step-card">
+      <div class="action-num">1</div>
+      <div class="action-content">
+        <div class="action-title">Replace the hero copy with experience-led language</div>
+        <p class="action-desc">"Adventures in Alpine Luxury" is generic — it could describe a dozen properties. Replace with copy that places the visitor inside the experience before anything is being sold: <em>"The aurora overhead, ancient forest all around, and a quiet you forgot existed."</em> The goal is an emotional state, not a category description.</p>
+        <div class="action-footer">
+          <span class="action-timing">May 2026</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Tobi</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Blacksmith SEO</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-step-card">
+      <div class="action-num">2</div>
+      <div class="action-content">
+        <div class="action-title">Add a brief story moment between the hero and the package grid</div>
+        <p class="action-desc">Two to three sentences of specific sensory detail — stepping outside at midnight, the aurora filling a glass ceiling, Chef James Gao's table already set — that give the visitor a reason to lean in before any commercial offer appears. This is a copy change, not a design project.</p>
+        <div class="action-footer">
+          <span class="action-timing">May 2026</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Tobi</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Blacksmith SEO</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-step-card">
+      <div class="action-num">3</div>
+      <div class="action-content">
+        <div class="action-title">Move the credentials bar and editorial logo strip above the fold</div>
+        <p class="action-desc">The "5,500+ guests, 1,300+ reviews, 260 dark nights" stats bar and the NYT / WaPo / T&amp;L / Condé Nast / National Geographic logo strip currently sit near the bottom of the page. They belong immediately after the story moment — before the first CTA. Trust signals must be visible before the ask, not buried below it.</p>
+        <div class="action-footer">
+          <span class="action-timing">May 2026</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Tobi</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Blacksmith SEO</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-step-card">
+      <div class="action-num">4</div>
+      <div class="action-content">
+        <div class="action-title">Reduce visible CTAs from 10 to 2, and add "from CA$X" pricing to all package cards</div>
+        <p class="action-desc">The current homepage presents 10 visible actions before the visitor has been given a reason to lean in — remove the administrative grid and reduce to "View Packages" and "Book Now." Separately: no pricing exists anywhere on the packages page. For a visitor weighing a multi-thousand-dollar commitment, the absence of a starting figure is a direct conversion barrier.</p>
+        <div class="action-footer">
+          <span class="action-timing">May 2026</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Tobi</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Blacksmith SEO</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-step-card">
+      <div class="action-num">5</div>
+      <div class="action-content">
+        <div class="action-title">Reposition email capture — move from footer, reframe as the Aurora Viewing Guide</div>
+        <p class="action-desc">Move the email sign-up from the footer to a mid-page placement. Change the framing from a newsletter subscription to "Planning a trip? Get our Aurora Viewing Guide." Connects directly to Step 3 of the newsletter plan — the guide becomes the reason to sign up, not the resort's news feed.</p>
+        <div class="action-footer">
+          <span class="action-timing">May–June 2026</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Tobi</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Blacksmith SEO</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GROUP 4 -->
+  <div class="action-group">
+    <div class="action-group-heading">04 &mdash; Filmmaker &amp; Photographer Planning &nbsp;·&nbsp; The visual library every other channel depends on</div>
+
+    <div class="action-step-card">
+      <div class="action-num">1</div>
+      <div class="action-content">
+        <div class="action-title">Define the summer brief — a standing shot list covering the four visual gaps</div>
+        <p class="action-desc">Agree the core summer deliverables: chalet interiors (the #1 visual gap vs. Nimmo, Sonora, and Clayoquot), dining in context (Chef James Gao's table), spa detail, and team portraiture (Tobias, Lynn, the guides — family-run is a differentiator consistently cited in reviews). The brief should run 2–3 pages and be reusable with seasonal updates each month rather than written from scratch.</p>
+        <div class="action-footer">
+          <span class="action-timing">May 2026</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Tobi</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Junction</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-step-card">
+      <div class="action-num">2</div>
+      <div class="action-content">
+        <div class="action-title">Book photographer/videographer on a monthly retainer starting June</div>
+        <p class="action-desc">A recurring monthly retainer — not session-by-session bookings — is essential. A gap in June or July means a gap in paid creative, social content, and email assets during the run-up to the September–November booking peak. Confirm talent, delivery format, and turnaround time (target: social-ready assets within one week of each shoot).</p>
+        <div class="action-footer">
+          <span class="action-timing">Confirmed by end of May 2026</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Tobi</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Tobi / Resort Team</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-step-card">
+      <div class="action-num">3</div>
+      <div class="action-content">
+        <div class="action-title">Execute first summer shoot in June — rooms, spa, and dining as primary focus</div>
+        <p class="action-desc">The June shoot is the single most important session: it closes the interior photography gap that separates the current website from the Nimmo/Sonora/Clayoquot aspirational set, and it simultaneously feeds the homepage redesign, the first Meta creative refresh, and the first social posts under the new content pillars.</p>
+        <div class="action-footer">
+          <span class="action-timing">June 2026</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Tobi</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Photographer / Videographer (to be booked)</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-step-card">
+      <div class="action-num">4</div>
+      <div class="action-content">
+        <div class="action-title">Brief and confirm the filmmaker for the dedicated winter shoot</div>
+        <p class="action-desc">The winter shoot is the anchor of Campaign 2: a 3–5 minute homepage film capturing the full guest experience from arrival to aurora — the glass chalet ceiling, the dining, the silence. Timing is weather-dependent (first snowfall), which means the brief and the talent must be locked by July at the latest. The homepage film is the centrepiece of the September–November paid activation.</p>
+        <div class="action-footer">
+          <span class="action-timing">Brief: July–Aug 2026 &nbsp;·&nbsp; Shoot: first snowfall</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Junction</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Filmmaker (to be sourced)</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-step-card">
+      <div class="action-num">5</div>
+      <div class="action-content">
+        <div class="action-title">Establish the monthly asset distribution workflow — from shoot to every active channel</div>
+        <p class="action-desc">After each shoot, assets must flow automatically to: social queue (posted within the week), email library (tagged by content pillar), paid creative library (Meta and Google refreshed monthly), and the website redesign library (staged for homepage and packages updates). Requires a shared folder structure, a naming convention, and an agreed sign-off process agreed between Tobi, Junction, and Blacksmith SEO before the first shoot.</p>
+        <div class="action-footer">
+          <span class="action-timing">Agreed by June 2026 — ongoing</span>
+          <span class="action-role"><span class="action-role-tag managing">Managing</span><span class="action-role-name">Tobi</span></span>
+          <span class="action-role"><span class="action-role-tag executing">Executing</span><span class="action-role-name">Blacksmith SEO + Photographer</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="callout gold-border">
+    <div class="callout-label">Owner Definitions</div>
+    <p><strong style="color:var(--text)">Tobi</strong> = Tobias, resort co-owner. Internal point of contact and final decision-maker on all resort-side commitments. &emsp;<strong style="color:var(--text)">Junction</strong> = Junction Consulting, strategy author. Leads strategy, content, and campaign deliverables. &emsp;<strong style="color:var(--text)">Blacksmith SEO</strong> = Website and technical delivery partner.</p>
+  </div>
+
 </section>
 
 </main>
